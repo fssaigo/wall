@@ -1,0 +1,112 @@
+.navigation .middle {
+    width: 1024px;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.li {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.zuop {
+    height: auto;
+    border-top: 2px solid #00ffcc;
+    margin-top: 20px;
+    background-color:#193342;
+}
+
+.search {
+    height: 142px;
+    width: 100%;
+    /*background-color: yellow;*/
+    display: inline-block;
+
+}
+
+.search .item {
+    height: 40px;
+    margin-top: 40px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 2px solid #00ffcc;
+    -moz-border-radius: 26px;
+    -webkit-border-radius: 26px;
+    border-radius: 26px;
+    width: 50%;
+    text-align: center;
+}
+
+.search .item input {
+    outline: none;
+    width: 90%;
+    margin-top: 4px;
+    border: none;
+    background-color: transparent;
+    height: 32px;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #2f6a66;
+
+}
+
+.search .item input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #2f6a66;
+}
+
+.search .item input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #2f6a66;
+}
+
+.search .item input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #2f6a66;
+}
+
+.search .item input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #2f6a66;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.list {
+    position: relative;
+    max-height: 520px;
+    overflow: hidden;
+    margin-left: 14px;
+}
+
+.list .obj {
+    height: 248px;
+    /*256*/
+    width: 236px;
+    float: left;;
+    /*margin: 5px 10px 5px 0px;*/
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+
+}
+
+.pagination{
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 50px;
+}

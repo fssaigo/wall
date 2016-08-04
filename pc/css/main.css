@@ -1,4 +1,4 @@
-header {
+.index{
     background-image: url("../imgs/banner_01.jpg");
     height: 490px;
 
@@ -16,6 +16,24 @@ header {
     background-size: cover;*/
 }
 
+.sub{
+    background-image: url("../imgs/banner_01.jpg");
+    height: 300px;
+
+    min-width: 1024px;
+    /* 背景图垂直、水平均居中*/
+    background-position: top center;
+
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+
+    /* 让背景图基于容器大小伸缩*/
+    background-size: cover;
+}
+
 html, body {
     height: 100%;
     background-color: #0e2532;
@@ -23,10 +41,21 @@ html, body {
     position: relative;
 }
 
+.navigation{
+    height: 55px;
+    background-color: #00ffcc;
+}
 .container {
     width: 1024px;
     max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+}
+
+footer {
+    margin-top: 30px;
+    color: white;
+    height: 180px;
+    float: left;
 }
