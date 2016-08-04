@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="028e6a8b-4951-4e2e-a973-d8fdd1d965f1" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/grids-responsive-min.css" afterPath="$PROJECT_DIR$/pc/css/grids-responsive-min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/pc/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.css" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.eot" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.svg" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.ttf" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.woff" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/0.jpeg" afterPath="$PROJECT_DIR$/pc/imgs/0.jpeg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/banner_01.jpg" afterPath="$PROJECT_DIR$/pc/imgs/banner_01.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/button.png" afterPath="$PROJECT_DIR$/pc/imgs/button.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/huodong.png" afterPath="$PROJECT_DIR$/pc/imgs/huodong.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/jiangli.png" afterPath="$PROJECT_DIR$/pc/imgs/jiangli.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/jz.jpg" afterPath="$PROJECT_DIR$/pc/imgs/jz.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/slogn.png" afterPath="$PROJECT_DIR$/pc/imgs/slogn.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/zuoye.png" afterPath="$PROJECT_DIR$/pc/imgs/zuoye.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/pc/index.html" />
-    </list>
+    <list default="true" id="028e6a8b-4951-4e2e-a973-d8fdd1d965f1" name="Default" comment="" />
     <ignored path="wall.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
