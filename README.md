@@ -1,3 +1,3 @@
 # wall
 
-pc版本: open index.html
+pc版本: open pc/index.html
