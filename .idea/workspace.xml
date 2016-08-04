@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="028e6a8b-4951-4e2e-a973-d8fdd1d965f1" name="Default" comment="" />
+    <list default="true" id="028e6a8b-4951-4e2e-a973-d8fdd1d965f1" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/css/grids-responsive-min.css" afterPath="$PROJECT_DIR$/pc/css/grids-responsive-min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/pc/css/main.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.css" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.eot" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.svg" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.ttf" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/iconfont/iconfont.woff" afterPath="$PROJECT_DIR$/pc/iconfont/iconfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/0.jpeg" afterPath="$PROJECT_DIR$/pc/imgs/0.jpeg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/banner_01.jpg" afterPath="$PROJECT_DIR$/pc/imgs/banner_01.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/button.png" afterPath="$PROJECT_DIR$/pc/imgs/button.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/huodong.png" afterPath="$PROJECT_DIR$/pc/imgs/huodong.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/jiangli.png" afterPath="$PROJECT_DIR$/pc/imgs/jiangli.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/jz.jpg" afterPath="$PROJECT_DIR$/pc/imgs/jz.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/slogn.png" afterPath="$PROJECT_DIR$/pc/imgs/slogn.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imgs/zuoye.png" afterPath="$PROJECT_DIR$/pc/imgs/zuoye.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/pc/index.html" />
+    </list>
     <ignored path="wall.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,6 +35,76 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="wall" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="0.jpeg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/0.jpeg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jz.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/jz.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slogn.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/slogn.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zuoye.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/zuoye.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="button.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/button.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="huodong.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/huodong.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jiangli.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/jiangli.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="banner_01.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pc/imgs/banner_01.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iconfont.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pc/iconfont/iconfont.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,6 +172,57 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pc" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -124,5 +262,55 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pc/imgs/0.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/imgs/jz.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/imgs/slogn.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/imgs/zuoye.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/imgs/button.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/imgs/huodong.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/imgs/jiangli.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/imgs/banner_01.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pc/iconfont/iconfont.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
