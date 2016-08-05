@@ -17,7 +17,7 @@
 }
 
 .sub{
-    background-image: url("../imgs/banner_01.jpg");
+    background-image: url("../imgs/banner_02.jpg");
     height: 300px;
 
     min-width: 1024px;
@@ -30,8 +30,25 @@
     /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
     background-attachment: fixed;
 
-    /* 让背景图基于容器大小伸缩*/
-    background-size: cover;
+    /* 让背景图基于容器大小伸缩
+    background-size: cover;*/
+    color: #0fc;
+    text-align: center;
+}
+.sub .sub-time{
+    font-size: 16px;
+    line-height: 40px;
+    padding-top: 60px;
+}
+
+.sub .sub-title{
+    font-size: 60px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+.sub .sub-info{
+    line-height: 20px;
+    font-size: 14px;
 }
 
 html, body {
@@ -57,5 +74,9 @@ footer {
     margin-top: 30px;
     color: white;
     height: 180px;
+    width: 1024px;
     float: left;
+    background: url("../imgs/ewm.png");
+    background-repeat: no-repeat;
+    background-position: top right;
 }

@@ -1,14 +1,30 @@
 .navigation .middle {
-    width: 1024px;
+    width: 824px;
     max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    text-align: center;
+    line-height: 55px;
+}
+
+
+.navigation .middle a:hover{
+    background: #0e2532;
+    border-radius: 25px;
+    color: #00ffcc;
+    padding: 10px 25px;
+}
+
+.navigation .middle .on{
+    background: #0e2532;
+    border-radius: 25px;
+    color: #00ffcc;
+    padding: 10px 25px;
 }
 
 .li {
     text-align: center;
-    margin-top: 20px;
     font-size: 18px;
     font-weight: 500;
 }
@@ -21,7 +37,7 @@
 }
 
 .search {
-    height: 142px;
+    height: 125px;
     width: 100%;
     /*background-color: yellow;*/
     display: inline-block;
@@ -79,20 +95,21 @@ a {
 
 .list {
     position: relative;
-    max-height: 520px;
     overflow: hidden;
     margin-left: 14px;
 }
 
 .list .obj {
-    height: 248px;
+    height: auto;
     /*256*/
     width: 236px;
     float: left;;
     /*margin: 5px 10px 5px 0px;*/
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     position: relative;
+    border-radius: 5px;
+    overflow: hidden;
 
     /* 背景图垂直、水平均居中 */
     background-position: center center;
@@ -104,6 +121,41 @@ a {
     background-size: cover;
 
 }
+
+.list .obj .obj-img{
+    height: 236px;
+    width: 236px;
+}
+
+.list .obj .obj-title{
+    height: 35px;
+    width: 236px;
+    background: #fff;
+    border-bottom: solid 1px #dbdbdb;
+}
+
+.list .obj .obj-title a:hover{
+    text-decoration: underline;
+    color: #0d344a;
+}
+
+.list .obj .obj-title a{
+    color: #333;
+    line-height: 35px;
+    padding-left: 8px;
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.list .obj .handle{
+    height: 35px;
+    width: 236px;
+    background: #fff;
+    padding-left: 8px;
+    line-height: 35px;
+    font-size: 14px;
+}
+
 
 .pagination{
     text-align: center;
