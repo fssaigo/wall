@@ -70,6 +70,37 @@ html, body {
     position: relative;
 }
 
+.navigation .middle {
+    width: 824px;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    line-height: 55px;
+}
+
+
+.navigation .middle a:hover{
+    background: #0e2532;
+    border-radius: 25px;
+    color: #00ffcc;
+    padding: 10px 25px;
+}
+
+.navigation .middle .on{
+    background: #0e2532;
+    border-radius: 25px;
+    color: #00ffcc;
+    padding: 10px 25px;
+}
+
+.navigation .li {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 footer {
     margin-top: 30px;
     color: white;
