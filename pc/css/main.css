@@ -111,3 +111,13 @@ footer {
     background-repeat: no-repeat;
     background-position: top right;
 }
+a {
+    color: black;
+    text-decoration: none;
+}
+.border {
+    height: auto;
+    border-top: 2px solid #00ffcc;
+    margin-top: 20px;
+    background-color:#193342;
+}

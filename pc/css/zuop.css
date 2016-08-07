@@ -1,11 +1,6 @@
 
 
-.zuop {
-    height: auto;
-    border-top: 2px solid #00ffcc;
-    margin-top: 20px;
-    background-color:#193342;
-}
+
 
 .search {
     height: 125px;
@@ -59,10 +54,7 @@
     color: #2f6a66;
 }
 
-a {
-    color: black;
-    text-decoration: none;
-}
+
 
 .list {
     position: relative;
