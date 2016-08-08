@@ -25,20 +25,29 @@
     background-color: transparent;
     height: 32px;
     vertical-align: middle;
-    color: #2f6a66;
+    color: white;
 
+}
+.img-button{
+    border: none;
+    background-color:#02f5c5;
+    color:black;
+    width: 100px;
 }
 
 .search .item input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: #2f6a66;
+    font-size: 14px;
 }
 
 .search .item input::-moz-placeholder { /* Mozilla Firefox 19+ */
     color: #2f6a66;
+    font-size: 14px;
 }
 
 .search .item input:-ms-input-placeholder{
     color: #2f6a66;
+    font-size: 14px;
 }
 
 .search .item input::-webkit-input-placeholder {
@@ -109,20 +118,39 @@ textarea{
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #3f7593;
+    color:    #53c4b2;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #3f7593;
+    color:    #53c4b2;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #3f7593;
+    color:    #53c4b2;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #3f7593;
+    color:    #53c4b2;
 }
 textarea:-ms-input-placeholder {
-    color: #3f7593;
+    color: #53c4b2;
 }
 textarea::-webkit-input-placeholder {
-    color: #3f7593;
+    color: #53c4b2;
+}
+#multiple{
+    display: none;
+}
+#imgs a{
+    position: absolute;
+    margin-left:112px;
+    margin-top: -16px;
+}
+#imgs div{
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+#imgs div img{
+    width: 120px;
+    height: 120px;
 }

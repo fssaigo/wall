@@ -150,13 +150,12 @@ footer {
 }
 
 .list .obj {
-    height: 248px;
+    height: 250px;
     /*256*/
-    width: 248px;
+    width: 250px;
     float: left;;
-    margin: 5px 10px 5px 0px;
+    margin: 5px 8px 5px 0px;
     position: relative;
-
     /* 背景图垂直、水平均居中 */
     background-position: center center;
 
@@ -165,6 +164,10 @@ footer {
 
     /* 让背景图基于容器大小伸缩 */
     background-size: cover;
+
+}
+.list :last-child{
+    margin-right: 0px;
 
 }
 
@@ -184,7 +187,10 @@ footer {
     text-decoration: none;
     color: white;
 }
-
+.list .obj img{
+    width: 250px;
+    height: 250px;
+}
 .list .obj .description {
     text-align: start;
     background-color: #08e2b7;

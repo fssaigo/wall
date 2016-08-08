@@ -26,17 +26,17 @@
     <div class="middle">
         <div class="pure-g li">
             <div class="pure-u-1-3">
-                <a href="#">
+                <a href="index.html">
                     <span style="padding: 0px 20px;">首页</span>
                 </a>
             </div>
             <div class="pure-u-1-3">
-                <a href="#" class="on">
+                <a href="zuop.html" class="on">
                     作品展示
                 </a>
             </div>
             <div class="pure-u-1-3">
-                <a href="#" style="text-align: left;">
+                <a href="enroll.html" style="text-align: left;">
                     <span style="">我要参与</span>
                 </a>
             </div>
@@ -339,19 +339,6 @@
     </footer>
 </div>
 
-<script type="text/javascript">
-    function zanTa(e, id, num) {
-        if (!localStorage.getItem("selfNum_"+id)) {
-            localStorage.setItem("selfNum_"+id, 0);
-        }
-        if (localStorage.getItem("selfNum_"+id) <= 0) {
-            localStorage.setItem("selfNum_"+id, ++num);
-        } else {
-            alert("你已经赞过了");
-        }
-        const s = '<i class="iconfont" style="color:#f30;font-size: 14px;"> &nbsp;&nbsp;&#xe606;赞' + (num) + ' </i>';
-        e.getElementsByTagName("span")[0].innerHTML = s;
-    }
-</script>
+<script src="js/common.js" type="application/javascript"></script>
 </body>
 </html>
