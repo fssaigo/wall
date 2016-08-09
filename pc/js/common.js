@@ -60,19 +60,19 @@ function initPagination(pagehref,size) {
         jump_next = total - size;
     }
 
-    var html = '<li><a class="pure-button prev" href="' + pagehref + '?offset=' + jump_prev + '#list">&#171;</a></li>';
+    var html = '<li><a class="pure-button prev" href="' + pagehref + '?size='+size+'&offset=' + jump_prev + '#list">&#171;</a></li>';
     for (let i = start; i < end; i++) {
         if (i == page) {
-            html += '<li><a class="pure-button pure-button-active" href="' + pagehref + '?offset=' + i * size + '#list">' + (i + 1) + '</a></li>';
+            html += '<li><a class="pure-button pure-button-active" href="' + pagehref + '?size='+size+'&offset=' + i * size + '#list">' + (i + 1) + '</a></li>';
         } else {
-            html += '<li><a class="pure-button" href="' + pagehref + '?offset=' + i * size + '#list">' + (i + 1) + '</a></li>';
+            html += '<li><a class="pure-button" href="' + pagehref + '?size='+size+'&offset=' + i * size + '#list">' + (i + 1) + '</a></li>';
         }
     }
     if (end < total_page) {
         html += '<li style="padding-top: 28px;color: white;padding-right: 10px;">...</li>';
-        html += '<li><a class="pure-button" href="' + pagehref + '?offset=' + (total - size) + '#list">' + (total_page) + '</a></li>';
+        html += '<li><a class="pure-button" href="' + pagehref + '?size='+size+'&offset=' + (total - size) + '#list">' + (total_page) + '</a></li>';
     }
-    html += '<li><a class="pure-button next" href="' + pagehref + '?offset=' + jump_next + '#list">&#187;</a></li>';
+    html += '<li><a class="pure-button next" href="' + pagehref + '?size='+size+'&offset=' + jump_next + '#list">&#187;</a></li>';
 
     $('.pure-paginator')[0].innerHTML = html;
 
