@@ -133,7 +133,7 @@
                 <!--<button onclick="$('#multiple').click()">选择图片</button>-->
             </div>
             <div class="pure-u-19-24">
-                <span id="desc">请上传1-3张图</span>
+                <span id="desc">请上传1-3张图,其中至少有一张建筑全景图</span>
             </div>
         </div>
         <div class="pure-g l-height">
@@ -183,7 +183,11 @@
                 <input type="text" class="width02" placeholder="玻璃、板材、胶、五金件等">
             </div>
         </div>
-
+        <div class="pure-g l-height" >
+            <div class="pure-u-24-24">
+                <input type="button" value="确认提交" class="submit">
+            </div>
+        </div>
     </form>
     <footer>
         <h4 style="margin-top: 10px">关于活动中的任何问题，欢迎您与我们联系</h4>
@@ -206,7 +210,7 @@
                 let newdiv = document.createElement("div");
                 $(newdiv).attr("id","img_id_num_"+img_id_num)
                 $('#imgs').append(newdiv)
-                $(newdiv).append('<a href="javascript:remove('+img_id_num+')"><i class="iconfont" style="font-size: 18px;">&#xe609;</i></a>');
+                $(newdiv).append('<a href="javascript:remove('+img_id_num+')"><i class="iconfont" style="font-size: 18px;">&#xe609;</i></a><lable class="circular"></lable>');
                 var div = document.createElement("div");
                 $(newdiv).append(div);
                 var img = document.createElement("img");
@@ -219,11 +223,8 @@
                     };
                 })(img);
                 reader.readAsDataURL(file);
-
             }
-
         });
-
     });
 </script>
 </body>

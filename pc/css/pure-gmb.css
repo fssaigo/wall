@@ -750,8 +750,8 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     text-decoration: none;
     border-radius: 2px
 }
-
-.pure-button-hover, .pure-button:hover, .pure-button:focus {
+/*, .pure-button:focus*/
+.pure-button-hover, .pure-button:hover {
     border: 1px solid #00ffcc;
     /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);*/
     /*background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, .05)), to(rgba(0, 0, 0, .1)));*/
