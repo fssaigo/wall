@@ -21,7 +21,7 @@ function initPagination(pagehref,size) {
     let offset = getUrlParam("offset");
 
     let total = 1000;
-    let array_lg = 5;
+    let array_lg = 10;
     let side = Math.round(array_lg / 2) - 1;
 
     let total_page = Math.round(total / (size));
