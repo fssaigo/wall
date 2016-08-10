@@ -73,7 +73,17 @@
     position: relative;
     border-radius: 5px;
     overflow: hidden;
+    background: #0b2534;
 
+
+
+}
+
+
+.list .obj a.obj-img{
+    display: block;
+    height: 236px;
+    width: 236px;
     /* 背景图垂直、水平均居中 */
     background-position: center center;
 
@@ -82,12 +92,14 @@
 
     /* 让背景图基于容器大小伸缩 */
     background-size: cover;
-
 }
 
-.list .obj .obj-img{
-    height: 236px;
-    width: 236px;
+.list .obj a:hover.obj-img{
+    height: 226px;
+    width: 226px;
+    margin: 5px;;
+    /* 让背景图基于容器大小伸缩 */
+    background-size: contain;
 }
 
 .list .obj .obj-title{
