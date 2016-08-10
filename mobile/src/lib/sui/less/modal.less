@@ -19,7 +19,6 @@
     z-index: 10600;
     visibility: hidden;
     opacity: 0;
-    -webkit-transition-duration: @modalDuration;
     transition-duration: @modalDuration;
     &.modal-overlay-visible {
         visibility: visible;
@@ -40,25 +39,19 @@
     text-align: center;
     border-radius: 0.35rem;
     opacity: 0;
-    -webkit-transform: translate3d(0,0,0) scale(1.185);
     transform: translate3d(0,0,0) scale(1.185);
-    -webkit-transition-property: -webkit-transform, opacity;
     transition-property: transform, opacity;
     color: @color-text;
     display: none;
     &.modal-in {
         opacity: 1;
-        -webkit-transition-duration: @modalDuration;
         transition-duration: @modalDuration;
-        -webkit-transform: translate3d(0,0,0) scale(1);
         transform: translate3d(0,0,0) scale(1);
     }
     &.modal-out {
         opacity: 0;
         z-index: 11000-1;
-        -webkit-transition-duration: @modalDuration;
         transition-duration: @modalDuration;
-        -webkit-transform: translate3d(0,0,0) scale(0.815);
         transform: translate3d(0,0,0) scale(0.815);
     }
 }
@@ -149,19 +142,14 @@
     bottom: 0;
     z-index: 11000;
     width: 100%;
-    -webkit-transform: translate3d(0,100%,0);
     transform: translate3d(0,100%,0);
     &.modal-in {
-        -webkit-transition-duration: @actionsModalDuration;
         transition-duration: @actionsModalDuration;
-        -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
     }
     &.modal-out {
         z-index: 11000-1;
-        -webkit-transition-duration: @actionsModalDuration;
         transition-duration: @actionsModalDuration;
-        -webkit-transform: translate3d(0,100%,0);
         transform: translate3d(0,100%,0);
     }
 }
@@ -250,7 +238,6 @@ input.modal-text-input {
     font-family: inherit;
     display: block;
     box-shadow: 0 0 0 rgba(0,0,0,0);
-    -webkit-appearance: none;
     appearance: none;
     + input.modal-text-input {
         margin-top: 0.25rem;
@@ -277,20 +264,15 @@ input.modal-text-input {
     box-sizing: border-box;
     display: none;
     .scrollable();
-    -webkit-transition-property: transform;
     transition-property: transform;
-    -webkit-transform: translate3d(0,100%,0);
     transform: translate3d(0,100%,0);
     &.modal-in, &.modal-out {
-        -webkit-transition-duration: @popupDuration;
         transition-duration: @popupDuration;
     }
     &.modal-in {
-        -webkit-transform: translate3d( 0,0,0);
         transform: translate3d( 0,0,0);
     }
     &.modal-out {
-        -webkit-transform: translate3d( 0,100%,0);
         transform: translate3d( 0,100%,0);
     }
 }
@@ -361,21 +343,16 @@ html.with-statusbar-overlay {
     height: 13rem;
     z-index: 11500;
     display: none;
-    -webkit-transition-property: -webkit-transform;
     transition-property: transform;
     background: #cfd5da;
-    -webkit-transform: translate3d( 0,100%,0);
     transform: translate3d( 0,100%,0);
     &.modal-in, &.modal-out {
-        -webkit-transition-duration: 400ms;
         transition-duration: 400ms;
     }
     &.modal-in {
-        -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
     }
     &.modal-out {
-        -webkit-transform: translate3d(0,100%,0);
         transform: translate3d(0,100%,0);
     }
     .picker-modal-inner {
@@ -389,7 +366,7 @@ html.with-statusbar-overlay {
         + .picker-modal-inner {
             height: ~"-webkit-calc(100% - 2.2rem)";
             height: ~"-moz-calc(100% - 2.2rem)";
-            height: ~"calc(100% - 2.2rem)";
+            height: ~"calc(100% - 2.2rem)";    
         }
     }
     &.picker-modal-inline {
@@ -397,7 +374,6 @@ html.with-statusbar-overlay {
         position: relative;
         background: none;
         z-index: inherit;
-        -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
         .toolbar {
             .hairline-remove(top);
