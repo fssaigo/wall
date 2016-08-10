@@ -170,8 +170,11 @@
 }
 
 .buttons-tab {
-  background: white;
+  //color="#00ffcc"
+  background: #0e2532;
   position: relative;
+  padding-top: 10px;
+  //padding: 0px 0px 10px 0px;
   .hairline(bottom, #d0d0d0);
   .button {
     color: @color-text-secondary;
@@ -182,7 +185,7 @@
     -webkit-box-flex:1;
     -ms-flex:1;
     border: 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid @color-text-secondary;
     border-radius: 0;
 
     &.active {
