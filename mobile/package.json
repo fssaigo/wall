@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "muqiang",
   "scripts": {
-    "dev": "webpack-dev-server --port 8080 --inline --hot --no-info",
+    "dev": "webpack-dev-server --port 8080 --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "repository": {

@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: './static',
-        publicPath: '/wall/mobile/static/',
+        publicPath: '/static/',
         filename: 'build.js'
     },
     module: {
@@ -35,6 +35,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
+    module.exports.output.publicPath='/wall/mobile/static/';
     module.exports.plugins = [
         new webpack.DefinePlugin({
             'process.env': {

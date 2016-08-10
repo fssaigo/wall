@@ -1,48 +1,128 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+    <div class="page">
 
-    <div class="head">
 
-        <img src="../imgs/m-banner.jpg">
-    </div>
 
-    <div class="buttons-tab fixed-tab" data-offset="44">
-        <a href="#tab1" class="tab-link active button">活动说明</a>
-        <a href="#tab2" class="tab-link button">活动规则</a>
-        <a href="#tab3" class="tab-link button">奖项设置</a>
-        <a href="#tab4" class="tab-link button">作品展示</a>
-    </div>
+        <div class="content bg">
+            <div id="head">
+                <img src="../imgs/m-banner.jpg" align="absmiddle">
+            </div>
+            <!--<div class="buttons-tab fixed-tab" data-offset="0">-->
+            <div class="buttons-tab">
+                <a v-for='item in navigations' v-text="item.text"
+                   class="tab-link button" :class="{active:item.isFocus}" @click="choice($index)"></a>
+            </div>
 
-    <div class="tabs">
-        <div id="tab1" class="tab active">
-            <div class="content-block">
-                活动说明
+            <div class="tabs">
+                <!--transition="fade"-->
+                <router-view  transition="fade"
+                              transition-mode="out-in" keep-alive></router-view>
             </div>
         </div>
-        <div id="tab2" class="tab">
-            <div class="content-block">
-                活动规则
-            </div>
-        </div>
-        <div id="tab3" class="tab">
-            <div class="content-block">
-                奖项设置
-            </div>
-        </div>
-        <div id="tab4" class="tab">
-            <div class="content-block">
-                作品展示
-            </div>
-        </div>
-    </div>
+        <nav class="bar bar-tab">
+            <table width="100%" height="100%" class="cy">
+                <tr>
+                    <td align="center">
+                        <a href="#">我要参与</a>
+                    </td>
+                </tr>
+            </table>
 
-    <div class="content-block">
-        <p><a href="#" class="button">Usual Button 1</a></p>
+        </nav>
+
+
     </div>
 
 </template>
+
+<script>
+
+    export default {
+        data () {
+            return {
+                navigations: [
+                    {path: 'index', text: '活动说明', isFocus: true},
+                    {path: 'jl', text: '奖项设置', isFocus: false},
+                    {path: 'index', text: '活动规则', isFocus: false},
+                    {path: 'index', text: '作品展示', isFocus: false},
+                ]
+            }
+        },
+        methods: {
+            choice: function (index) {
+                this.navigations.map(function (v, i) {
+                    i == index ? v.isFocus = true : v.isFocus = false;
+                });
+                this.$route.router.go(this.navigations[index].path)
+            }
+        }
+    }
+</script>
 <style lang="less">
     @import "../lib/sui/less/sm.less";
 
+    .fade-transition {
+        transition: opacity .1s ease;
+    }
+    .fade-enter, .fade-leave {
+        opacity: 0;
+    }
+    .index {
+        img {
+            width: 100%;
+        }
+    }
+    .line {
+        border-bottom: 4px solid #00ffcc;
+    }
+    .bg {
+        background-color: #0e2532;
+        h3 {
+            color: white;
+        }
+    }
+
+    #head img {
+        width: 100%;
+    }
+
+    .myfont {
+        color: #9eaab1;
+        font-size: 14px;
+    }
+
+    .cy a {
+        color: black;
+        font-weight: bold;
+    }
+
+    .title-info {
+        line-height: 8px;
+        color: white;
+        font-size: 12px;
+    }
+
+    .foot {
+        display: block;
+        line-height: 4px;
+        font-size: 14px;
+        div {
+            margin-top: 2rem;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .title-info {
+            line-height: 16px;
+            color: white;
+            font-size: 26px;
+        }
+        .myfont {
+            font-size: 24px;
+        }
+    }
 </style>
 
 
