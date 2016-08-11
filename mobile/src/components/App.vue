@@ -2,7 +2,6 @@
     <div class="page">
 
 
-
         <div class="content bg">
             <div id="head">
                 <img src="../imgs/m-banner.jpg" align="absmiddle">
@@ -15,8 +14,8 @@
 
             <div class="tabs">
                 <!--transition="fade"-->
-                <router-view  transition="fade"
-                              transition-mode="out-in" keep-alive></router-view>
+                <router-view transition="fade"
+                             transition-mode="out-in" keep-alive></router-view>
             </div>
         </div>
         <nav class="bar bar-tab">
@@ -43,8 +42,8 @@
                 navigations: [
                     {path: 'index', text: '活动说明', isFocus: true},
                     {path: 'jl', text: '奖项设置', isFocus: false},
-                    {path: 'index', text: '活动规则', isFocus: false},
-                    {path: 'index', text: '作品展示', isFocus: false},
+                    {path: 'rule', text: '活动规则', isFocus: false},
+                    {path: 'zuop', text: '作品展示', isFocus: false},
                 ]
             }
         },
@@ -64,17 +63,15 @@
     .fade-transition {
         transition: opacity .1s ease;
     }
+
     .fade-enter, .fade-leave {
         opacity: 0;
     }
-    .index {
-        img {
-            width: 100%;
-        }
-    }
+
     .line {
         border-bottom: 4px solid #00ffcc;
     }
+
     .bg {
         background-color: #0e2532;
         h3 {
@@ -96,12 +93,6 @@
         font-weight: bold;
     }
 
-    .title-info {
-        line-height: 8px;
-        color: white;
-        font-size: 12px;
-    }
-
     .foot {
         display: block;
         line-height: 4px;
@@ -114,11 +105,6 @@
     }
 
     @media screen and (min-width: 768px) {
-        .title-info {
-            line-height: 16px;
-            color: white;
-            font-size: 26px;
-        }
         .myfont {
             font-size: 24px;
         }

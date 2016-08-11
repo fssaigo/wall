@@ -48,5 +48,23 @@
             </div>
         </div>
     </div>
-
 </template>
+<style lang="less">
+    .index {
+        img {
+            width: 100%;
+        }
+    }
+    .title-info {
+        line-height: 8px;
+        color: white;
+        font-size: 12px;
+    }
+    @media screen and (min-width: 768px) {
+        .title-info {
+            line-height: 16px;
+            color: white;
+            font-size: 26px;
+        }
+    }
+</style>
