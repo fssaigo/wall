@@ -1,5 +1,5 @@
 <template>
-    <div class="content-padded index myfont">
+    <div class="content-padded index myfont re-padden">
         <div class="grid-demo">
             <div class="row">
                 <div class="col-40"><img src="../imgs/jz.png" align="absmiddle"></div>
@@ -66,5 +66,9 @@
             color: white;
             font-size: 26px;
         }
+
+    }
+    .re-padden{
+        margin-left: 0.9rem;
     }
 </style>

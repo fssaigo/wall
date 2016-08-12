@@ -7,7 +7,7 @@
                 <img src="../imgs/m-banner.jpg" align="absmiddle">
             </div>
             <!--<div class="buttons-tab fixed-tab" data-offset="0">-->
-            <div class="buttons-tab">
+            <div class="buttons-tab bor-style">
                 <a v-for='item in navigations' v-text="item.text"
                    class="tab-link button" :class="{active:item.isFocus}" @click="choice($index)"></a>
             </div>
@@ -108,6 +108,13 @@
         .myfont {
             font-size: 24px;
         }
+    }
+    .bor-style{
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+    }
+    .buttons-tab .button.active{
+        font-weight: bold;
     }
 </style>
 
