@@ -3,7 +3,7 @@
         <ul>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/j1.jpg"></i>
+                    <i><img src="../imgs/jz.png"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">入围奖</div>
@@ -12,7 +12,7 @@
             </li>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/j2.jpg"></i>
+                    <i><img src="../imgs/jz.png"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">最佳人气奖</div>
@@ -21,7 +21,7 @@
             </li>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/j3.jpg"></i>
+                    <i><img src="../imgs/jz.png"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">最佳评论奖</div>
@@ -30,7 +30,7 @@
             </li>
             <li class="row" >
                 <div class="col-img">
-                    <i><img src="../imgs/j4.jpg"></i>
+                    <i><img src="../imgs/jz.png"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">转发有奖</div>
@@ -38,10 +38,9 @@
                 </div>
             </li>
         </ul>
-
     </div>
 </template>
-<style lang="less">
+<style lang="less" scoped>
     ul{
         list-style:none;
         padding: 0 0 2rem 0;

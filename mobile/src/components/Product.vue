@@ -8,11 +8,13 @@
             </div>
             <!--<div class="buttons-tab fixed-tab" data-offset="0">-->
             <div class="buttons-tab bor-style">
-                <a v-for='item in navigations' v-text="item.text"
-                   class="tab-link button" :class="{active:item.isFocus}" @click="choice($index)"></a>
+                <a v-for='item in navigations' v-text="item.text"  @click="choice($index)"
+                   class="tab-link button" :class="{active:item.isFocus}" ></a>
             </div>
+            <!--@click="choice($index)"-->
 
             <div class="tabs">
+
                 <!--transition="fade"-->
                 <router-view transition="fade"
                              transition-mode="out-in" keep-alive></router-view>
@@ -22,25 +24,35 @@
             <table width="100%" height="100%" class="cy">
                 <tr>
                     <td align="center">
-                        <a href="#">我要参与</a>
+                        <a v-link="'cany1'">我要参与</a>
                     </td>
                 </tr>
             </table>
-
         </nav>
-
-
     </div>
 
 </template>
 
 <script>
-
     export default {
+        route:{
+            activate:function(transition){
+                console.log(transition.to.name)
+//                alert(1);
+//                console.log(transition.to.name);
+                this.navigations.map(function (v, i) {
+                    transition.to.name == v.path ?v.isFocus = true:v.isFocus = false;
+                });
+                transition.next();
+            }
+        },
+        ready () {
+//            alert(1);
+        },
         data () {
             return {
                 navigations: [
-                    {path: 'index', text: '活动说明', isFocus: true},
+                    {path: 'index', text: '活动说明', isFocus: false},
                     {path: 'jl', text: '奖项设置', isFocus: false},
                     {path: 'rule', text: '活动规则', isFocus: false},
                     {path: 'zuop', text: '作品展示', isFocus: false},
@@ -57,8 +69,7 @@
         }
     }
 </script>
-<style lang="less">
-    @import "../lib/sui/less/sm.less";
+<style lang="less" scoped>
 
     .fade-transition {
         transition: opacity .1s ease;
@@ -68,42 +79,13 @@
         opacity: 0;
     }
 
-    .line {
-        border-bottom: 4px solid #00ffcc;
-    }
-
-    .bg {
-        background-color: #0e2532;
-        h3 {
-            color: white;
-        }
-    }
-
     #head img {
         width: 100%;
     }
 
-    .myfont {
-        color: #9eaab1;
-        font-size: 14px;
+    .tabs{
+        padding-bottom: 3rem;
     }
-
-    .cy a {
-        color: black;
-        font-weight: bold;
-    }
-
-    .foot {
-        display: block;
-        line-height: 4px;
-        font-size: 14px;
-        div {
-            margin-top: 2rem;
-            padding-bottom: 2rem;
-            margin-bottom: 2rem;
-        }
-    }
-
     @media screen and (min-width: 768px) {
         .myfont {
             font-size: 24px;
@@ -116,6 +98,8 @@
     .buttons-tab .button.active{
         font-weight: bold;
     }
+
+
 </style>
 
 

@@ -19,13 +19,18 @@ module.exports = {
                 test: /\.(png|jpg)$/,
                 loader: "url-loader?limit=8192"
             },
+
             {
                 test: /\.js$/,
                 // excluding some local linked packages.
                 // for normal use cases only node_modules is needed.
                 exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
                 loader: 'babel'
-            }
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!less'
+            },
         ]
     },
     babel: {
@@ -35,7 +40,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.output.publicPath='/wall/mobile/static/';
+    module.exports.output.publicPath = '/wall/mobile/static/';
     module.exports.plugins = [
         new webpack.DefinePlugin({
             'process.env': {

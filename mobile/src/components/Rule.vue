@@ -75,21 +75,24 @@
                 信息表：每个项目填写一张信息表，随项目资料一起提交
             </div>
         </div>
-
     </div>
-    <style lang="less">
-        h4{
-            margin: 1rem 0.4rem 0.5rem 0.4rem;
-            color: #fff;
-        }
-        .row{
-            margin:0.4rem 0 0.4rem 0.5rem;
-        }
-        .col-num{
-            width: 8%;
-        }
-        .col-info{
-            width:92%;
-        }
-    </style>
 </template>
+<style lang="less" scoped>
+    h4 {
+        margin: 1rem 0.4rem 0.5rem 0.4rem;
+        color: #fff;
+    }
+
+    .row {
+        margin: 0.4rem 0 0.4rem 0.5rem;
+    }
+
+    .col-num {
+        width: 8%;
+    }
+
+    .col-info {
+        width: 92%;
+    }
+</style>
+
