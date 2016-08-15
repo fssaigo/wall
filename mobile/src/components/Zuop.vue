@@ -138,4 +138,7 @@
     .re-cancel {
         font-size: 0.7rem;
     }
+    a{
+        color: #333333;
+    }
 </style>

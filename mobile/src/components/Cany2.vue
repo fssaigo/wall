@@ -121,7 +121,7 @@
         width:100%;
         color: #ffffff;
         padding-left: 0.5rem;
-        padding-right: 0.2rem;
+        padding-right: 0.1rem;
     }
     textarea{
         height: 5rem;
