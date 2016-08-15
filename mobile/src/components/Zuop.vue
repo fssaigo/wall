@@ -12,9 +12,11 @@
         <div class="content-padded myfont ss">
             <div class="card demo-card-header-pic">
                 <div valign="bottom" class="card-header color-white no-border no-padding">
+                    <a v-link="'detail'">
                     <img class='card-cover'
                          src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
                          alt="">
+                    </a>
                 </div>
                 <div class="card-content">
                     <div class="card-content-inner">
@@ -28,9 +30,11 @@
             </div>
             <div class="card demo-card-header-pic">
                 <div valign="bottom" class="card-header color-white no-border no-padding">
+                    <a v-link="'detail'">
                     <img class='card-cover'
                          src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
                          alt="">
+                    </a>
                 </div>
                 <div class="card-content">
                     <div class="card-content-inner">
@@ -44,9 +48,11 @@
             </div>
             <div class="card demo-card-header-pic">
                 <div valign="bottom" class="card-header color-white no-border no-padding">
+                    <a v-link="'detail'">
                     <img class='card-cover'
                          src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
                          alt="">
+                    </a>
                 </div>
                 <div class="card-content">
                     <div class="card-content-inner">
@@ -60,9 +66,11 @@
             </div>
             <div class="card demo-card-header-pic">
                 <div valign="bottom" class="card-header color-white no-border no-padding">
+                    <a v-link="'detail'">
                     <img class='card-cover'
                          src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
                          alt="">
+                    </a>
                 </div>
                 <div class="card-content">
                     <div class="card-content-inner">

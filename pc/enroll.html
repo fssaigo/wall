@@ -93,7 +93,7 @@
             </div>
         </div>
     </div>
-    <form>
+    <form action="index.html" method="post">
         <p>个人信息</p>
         <div class="pure-g l-height">
             <div class="pure-u-2-24">姓名<i>*</i></div>
@@ -185,7 +185,7 @@
         </div>
         <div class="pure-g l-height" >
             <div class="pure-u-24-24">
-                <input type="button" value="确认提交" class="submit">
+                <input type="button" value="确认提交" class="submit" onclick="submit()">
             </div>
         </div>
     </form>
@@ -196,18 +196,28 @@
     </footer>
 </div>
 <script type="text/javascript">
+    function submit(){
+        $("form").submit();
+    }
     function remove(id){
      //   $('#img_id_num_'+id).prop('outerHTML', '');
         $('#img_id_num_'+id).remove();
     }
     $(function() {
-        let img_id_num = 0;
+
+        var img_id_num = 0;
+
         $("#dropbox, #multiple").html5Uploader({
             name: "foo",
             postUrl: "bar.aspx",
+            onClientLoad:function(e1,e2){
+              //  console.log(e1);
+            //    console.log(e2);
+            },
             onClientLoadEnd:function(e,file){
+             
                 img_id_num++;
-                let newdiv = document.createElement("div");
+                var newdiv = document.createElement("div");
                 $(newdiv).attr("id","img_id_num_"+img_id_num)
                 $('#imgs').append(newdiv)
                 $(newdiv).append('<a href="javascript:remove('+img_id_num+')"><i class="iconfont" style="font-size: 18px;">&#xe609;</i></a><lable class="circular"></lable>');
@@ -223,6 +233,11 @@
                     };
                 })(img);
                 reader.readAsDataURL(file);
+            },
+
+            onServerAbort:function(t1,t2){
+                console.log(t1);
+                console.log(t2);
             }
         });
     });
