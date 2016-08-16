@@ -14,25 +14,25 @@
                 <div class="row">
                     <div class="col-25">姓名<i>*</i></div>
                     <div class="col-75">
-                        <input type="text">
+                        <input type="text" v-model="info.name">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">手机号<i>*</i></div>
                     <div class="col-75">
-                        <input type="text" >
+                        <input type="text" v-model="info.mobile">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">公司</div>
                     <div class="col-75">
-                        <input type="text">
+                        <input type="text" v-model="info.company">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">地址</div>
                     <div class="col-75">
-                        <textarea></textarea>
+                        <textarea v-model="info.address"></textarea>
                     </div>
                 </div>
             </form>
@@ -43,7 +43,7 @@
             <table width="100%" height="100%" class="next">
                 <tr>
                     <td align="center">
-                        <a v-link="'cany2'">下一步</a>
+                        <a @click="next">下一步</a>
                     </td>
                 </tr>
             </table>
@@ -52,9 +52,40 @@
     </div>
 
 </template>
+<script>
+//    import request from 'superagent'
+    export default {
+        data(){
+            return {
+                info:{
+                    name:null,
+                    mobile:null,
+                    company:null,
+                    address:null
+                }
+
+            }
+        },
+        methods:{
+            next:function(){
+                this.$route.router.go({ name: 'cany2', params: { info: JSON.stringify(this.info) }})
+//                this.$route.router.go({
+//                    name:'cany2',
+//                    params:{
+//                        'name':this.name,
+////                        mobile:this.mobile,
+////                        company:this.company,
+////                        address:this.address
+//                    }
+//                })
+            }
+        }
+    }
+</script>
 
 
 <style lang="less" scoped>
+
     .t-img{
         line-height: normal;
     }

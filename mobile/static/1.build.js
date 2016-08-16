@@ -1,1 +1,0 @@
-webpackJsonp([1],{10:function(o,t){o.exports=' <div class="content-padded myfont"> 奖励设置 </div> '},13:function(o,t,e){var p,s;s=e(10),o.exports=p||{},o.exports.__esModule&&(o.exports=o.exports["default"]),s&&(("function"==typeof o.exports?o.exports.options||(o.exports.options={}):o.exports).template=s)}});

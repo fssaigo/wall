@@ -18,14 +18,19 @@
 <!--<script type="application/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>-->
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 
+<script type="application/javascript" src="static/jquery.html5uploader.min.js"></script>
 <script type="text/javascript">
     //SUI初始化
     $.config = {
         autoInit: true,
         router: false
     }
+    function remove(id){
+        $('#img_id_num_'+id).remove();
+    }
 </script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+
 <script src="static/build.js"></script>
 </body>
 </html>

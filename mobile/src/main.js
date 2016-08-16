@@ -17,6 +17,8 @@ import Cany1 from './components/Cany1.vue'
 import Cany2 from './components/Cany2.vue'
 import Success from './components/Success.vue'
 
+
+
 //import NewsView from 'components/NewsView.vue'
 //import ItemView from 'components/ItemView.vue'
 //import UserView from 'components/UserView.vue'
@@ -73,7 +75,7 @@ router.map({
         name:'cany1',
         component:Cany1
     },
-    '/cany2':{
+    '/cany2/:info':{
         name:'cany2',
         component:Cany2
     },

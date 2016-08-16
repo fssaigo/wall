@@ -40,7 +40,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.output.publicPath = '/wall/mobile/static/';
+    module.exports.output.publicPath = '/static/wall/mobile/';
     module.exports.plugins = [
         new webpack.DefinePlugin({
             'process.env': {

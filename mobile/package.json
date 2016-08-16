@@ -25,6 +25,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
+    "superagent": "^2.2.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
@@ -37,6 +38,8 @@
     "es6-promise": "^3.0.2",
     "firebase": "^2.3.1",
     "vue": "^1.0.26",
-    "vue-router": "^0.7.13"
+    "vue-file-upload-component": "^1.4.0",
+    "vue-router": "^0.7.13",
+    "vue-upload-component": "^0.3.6"
   }
 }
