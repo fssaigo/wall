@@ -24,8 +24,14 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="link">赞</a>
-                    <a href="#" class="link">更多</a>
+                    <a href="#" class="link">
+                        <span class="iconfont">&#xe607;</span>
+                        赞TA
+                    </a>
+                    <a href="#" class="link re-color">
+                        <span class="iconfont">&#xe601;</span>
+                        评16
+                    </a>
                 </div>
             </div>
             <div class="card demo-card-header-pic">
@@ -42,8 +48,14 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="link">赞</a>
-                    <a href="#" class="link">更多</a>
+                    <a href="#" class="link">
+                        <span class="iconfont">&#xe607;</span>
+                        赞TA
+                    </a>
+                    <a href="#" class="link re-color">
+                        <span class="iconfont">&#xe601;</span>
+                        评16
+                    </a>
                 </div>
             </div>
             <div class="card demo-card-header-pic">
@@ -60,8 +72,14 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="link">赞</a>
-                    <a href="#" class="link">更多</a>
+                    <a href="#" class="link">
+                        <span class="iconfont">&#xe607;</span>
+                        赞TA
+                    </a>
+                    <a href="#" class="link re-color">
+                        <span class="iconfont">&#xe601;</span>
+                        评16
+                    </a>
                 </div>
             </div>
             <div class="card demo-card-header-pic">
@@ -78,19 +96,29 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="link">赞</a>
-                    <a href="#" class="link">更多</a>
+                    <a href="#" class="link">
+                        <span class="iconfont">&#xe607;</span>
+                        赞TA
+                    </a>
+                    <a href="#" class="link re-color">
+                        <span class="iconfont">&#xe601;</span>
+                        评16
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <style lang="less" scoped>
+    .link{
+        font-size: 0.5rem;
+    }
     .card {
         width: 46%;
         overflow: hidden;
         float: left;
         margin-right: 0;
+        margin-bottom: 0;
     }
 
     .card-header {
@@ -104,6 +132,7 @@
 
     .card-footer {
         padding: 0.4rem;
+        min-height: 1.6rem;
     }
 
     .card-content-inner p {
@@ -141,4 +170,14 @@
     a{
         color: #333333;
     }
+    .searchbar{
+        margin-top: 0.2rem;
+    }
+    .content-padded{
+        margin-top: 0.2rem;
+    }
+    .re-color{
+        color: #aaa;
+    }
+
 </style>
