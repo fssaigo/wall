@@ -14,7 +14,8 @@
                 <div class="row">
                     <div class="col-25">标题<i>*</i></div>
                     <div class="col-75">
-                        <textarea v-model="detail.title" class="height01" placeholder="标题请直接突出该项目的“之最”特征，如：全球最大单体陶板幕墙—XXX项目"></textarea>
+                        <textarea v-model="detail.title" class="height01"
+                                  placeholder="标题请直接突出该项目的“之最”特征，如：全球最大单体陶板幕墙—XXX项目"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +44,7 @@
                     <div class="col-25">项目介绍<i>*</i></div>
                     <div class="col-75">
                         <textarea v-model="detail.description"
-                                placeholder="对项目整体的文字介绍，包含但不限于项目名称、项目地点、项目简介、设计理念、难点亮点、技术参数（能够量化的体现“之最”的数据或信息）"></textarea>
+                                  placeholder="对项目整体的文字介绍，包含但不限于项目名称、项目地点、项目简介、设计理念、难点亮点、技术参数（能够量化的体现“之最”的数据或信息）"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -115,19 +116,29 @@
                     design: null,
                     construction: null,
                     material: null,
-                    uid:null,
-                    photoIds:null
+                    uid: null,
+                    photoIds: null
                 }
 
             }
         },
         route: {
             data ({ to }) {
-                let info_ = JSON.parse(to.params.info);
-                this.info = info_;
-            },
+                if (to.params.info != 'success') {
+                    let info_ = JSON.parse(to.params.info);
+                    this.info = info_;
+                }
+                this.detail = {};
+            }
         },
         ready(){
+            function remove(id) {
+                $('#img_id_num_' + id).remove();
+                var ids = ',' + $("#photoIds").val();
+                var ods = ids.replace(',' + id + ',', ',');
+                var nid = ods.substring(1);
+                $("#photoIds").val(nid);
+            }
             let img_id_num = 0;
             $("#file").html5Uploader({
                 name: "photoFile",
@@ -167,6 +178,7 @@
                     }
                 }
             });
+
         },
         methods: {
             remove: function (id) {
@@ -183,14 +195,14 @@
                         .set('Content-Type', 'application/x-www-form-urlencoded')
                         .set('Accept', 'application/json')
                         .send(vm.info)
-                        .end(function (err,res) {
+                        .end(function (err, res) {
                             if (err || !res.ok) {
                                 alert('error');
                             } else {
                                 var result = JSON.parse(res.text);
-                                if(result.status == 0){
+                                if (result.status == 0) {
                                     alert(result.msg);
-                                }else{
+                                } else {
                                     vm.detail.uid = result.data.uid;
                                     vm.detail.photoIds = $("#photoIds").val();
                                     vm.submitDetail();
@@ -198,21 +210,27 @@
                             }
                         });
             },
-            submitDetail:function(){
+            submitDetail: function () {
+                var vm = this;
                 request
                         .post('/?c=ajax&a=work')
                         .set('Content-Type', 'application/x-www-form-urlencoded')
                         .set('Accept', 'application/json')
                         .send(this.detail)
-                        .end(function (err,res) {
+                        .end(function (err, res) {
                             if (err || !res.ok) {
                                 alert('Oh no! error');
                             } else {
                                 var result = JSON.parse(res.text);
-                                if(result.status == 0){
+                                if (result.status == 0) {
                                     alert(result.msg);
-                                }else{
-                                    alert('success');
+                                } else {
+                                    var ids = vm.detail.photoIds;
+                                    var n = ids.split(',');
+                                    for (var i = 0; i < n.length; i++) {
+                                        remove(n[i]);
+                                    }
+                                    vm.$route.router.go({path: '/success', append: false});
                                 }
                             }
                         });

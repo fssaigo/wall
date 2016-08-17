@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-25">手机号<i>*</i></div>
                     <div class="col-75">
-                        <input type="text" v-model="info.mobile">
+                        <input type="tel" v-model="info.mobile">
                     </div>
                 </div>
                 <div class="row">
@@ -53,8 +53,32 @@
 
 </template>
 <script>
-//    import request from 'superagent'
+    //getCookie
+    import request from 'superagent'
     export default {
+        route: {
+            data ({ to }) {
+                let vm = this;
+                let userId = getCookie('userId');
+                if(userId){
+                    request.get('/?c=ajax&a=user&id='+userId)
+                            .end(function (err, res) {
+                                console.log(res);
+                                var result = JSON.parse(res.text);
+                                if (result.status == 1) {
+                                    if (result.data) {
+                                        vm.info.name = result.data.name;
+                                        vm.info.mobile = result.data.mobile;
+                                        vm.info.zzcompany = result.data.company;
+                                        vm.info.address = result.data.address;
+                                    }
+                                } else {
+                                    alert(result.msg);
+                                }
+                            });
+                }
+            },
+        },
         data(){
             return {
                 info:{
@@ -68,16 +92,16 @@
         },
         methods:{
             next:function(){
+                let vm = this;
+                if(!vm.info.name){
+                    alert('姓名不能为空');
+                    return;
+                }
+                if(!vm.info.mobile){
+                    alert('电话不能为空');
+                    return;
+                }
                 this.$route.router.go({ name: 'cany2', params: { info: JSON.stringify(this.info) }})
-//                this.$route.router.go({
-//                    name:'cany2',
-//                    params:{
-//                        'name':this.name,
-////                        mobile:this.mobile,
-////                        company:this.company,
-////                        address:this.address
-//                    }
-//                })
             }
         }
     }

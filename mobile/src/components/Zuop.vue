@@ -9,30 +9,69 @@
                 </div>
             </div>
         </div>
-        <div class="content-padded myfont">
+        <div class="content-padded myfont" id="content_zuop">
             <div class="infinite-scroll infinite-scroll-bottom" data-distance="100" id="list">
 
-                <div class="card demo-card-header-pic" v-for='item in list'>
-                    <div valign="bottom" class="card-header color-white no-border no-padding">
-                        <a v-link="'detail'">
-                            <img class='card-cover' src={{item.picture}} />
-                        </a>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-content-inner">
-                            <p>{{item.title}}</p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="link">
-                            <i class="iconfont">
-                                &#xe607;
-                                赞TA
-                            </i>
+                <div class="row">
+                    <div class="col-50">
+                        <div class="cd" v-for='item in list1'>
+                            <div valign="bottom" class="card-header color-white no-border no-padding">
+                                <a  v-link="{ name: 'detail', params: { id: item.work_id }}">
+                                    <img class='card-cover' src={{item.picture}}>
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <p>{{item.title}}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a @click="zanT(item.work_id,zan)" href="javascript:void(0)" class="link">
+                                    <i class="iconfont">
+                                        &#xe607;
+                                        赞 {{item.zan}}
+                                    </i>
 
-                        </a>
-                        <a href="#" class="link">更多</a>
+                                </a>
+
+                                <a v-link="{ name: 'detail', params: { id: item.work_id }}" class="link">
+                                    <span class="iconfont">&#xe601;</span>
+                                    评论 {{item.comment}}
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
+                    <div class="col-50">
+                        <div class="cd"  v-for='item in list2'>
+                            <div valign="bottom" class="card-header color-white no-border no-padding">
+                                <a  v-link="{ name: 'detail', params: { id: item.work_id }}">
+                                    <img class='card-cover' src={{item.picture}} >
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <p>{{item.title}}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a @click="zanT(item.work_id,zan)" href="javascript:void(0)" class="link">
+                                    <i class="iconfont">
+                                        &#xe607;
+                                        赞 {{item.zan}}
+                                    </i>
+                                </a>
+                                <a v-link="{ name: 'detail', params: { id: item.work_id }}" class="link">
+                                    <span class="iconfont">&#xe601;</span>
+                                    评论 {{item.comment}}
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ct">
+
                 </div>
 
 
@@ -48,14 +87,15 @@
         <div class="space">&nbsp;</div>
     </div>
 </template>
-<script>
+<script >
     import request from 'superagent';
 
     export default {
         data(){
             return {
-                list: [],
-                loading : false
+                list1: [],
+                list2: [],
+                loading: false
             }
         },
         route: {
@@ -63,8 +103,47 @@
                 this.loading = false;
             }
         },
+        methods:{
+            zanT:function(id,num){
+                let vm = this;
+                if (!localStorage.getItem("selfNum_" + id)) {
+                    localStorage.setItem("selfNum_" + id, 0);
+                }
+                if (localStorage.getItem("selfNum_" + id) <= 0) {
+                    localStorage.setItem("selfNum_" + id, ++num);
 
+                    request.get('/?c=ajax&a=vote&id=' + id +'&random=' + Math.random()).end(function (err, res) {
+                        if (err || !res.ok) {
+                            alert('error');
+                        } else {
+                            var result = JSON.parse(res.text);
+                            if (result.status == 1) {
+                                vm.list1.map(function (v, index) {
+                                    if(v.work_id == id){
+                                        v.zan++;
+                                        return;
+                                    }
+                                });
+                                vm.list2.map(function (v, index) {
+                                    if(v.work_id == id){
+                                        v.zan++;
+                                        return;
+                                    }
+                                });
+
+                            } else {
+                                alert(result.msg);
+                            }
+                        }
+                    });
+                } else {
+                    alert("你已经赞过了");
+                }
+
+            },
+        },
         ready(){
+            $.init();
             let vm = this;
             // 最多可加载的条目
             let maxItems = 1000;
@@ -83,9 +162,17 @@
                         if (result.status == 1) {
                             if (result.data) {
                                 console.log(result.data);
-                                result.data.map(function (v, index) {
-                                    vm.list.push(v);
-                                });
+                                var i =0;
+                                for(;i<result.data.length;i+=2){
+                                    vm.list1.push(result.data[i]);
+                                    vm.list2.push(result.data[i+1]);
+                                }
+                                if(i>result.data.length){
+                                    vm.list1.push(result.data[i-1]);
+                                }
+//                                result.data.map(function (v, index) {
+//                                    vm.list.push(v);
+//                                });
                             } else {
                                 vm.loading = false;
                             }
@@ -94,12 +181,13 @@
                         }
                     }
                 });
+
             }
 
             //预先加载条
             addItems(itemsPerLoad, 0);
             // 注册'infinite'事件处理函数
-            $(document).on('infinite', function () {
+            $('#content').on('infinite', function () {
                 // 如果正在加载，则退出
                 if (vm.loading) return;
                 // 设置flag
@@ -119,7 +207,7 @@
                     addItems(itemsPerLoad, lastIndex);
                     // 更新最后加载的序号
                     //   alert($('.card').length)
-                    lastIndex = $('.card').length + 10;
+                    lastIndex = $('.cd').length + 10;
                     //  alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
@@ -129,6 +217,12 @@
     }
 </script>
 <style lang="less" scoped>
+    .cd{
+        background-color: white;
+        margin-top: 0.5rem;
+        border-radius: 0.1rem;
+        position: relative;
+    }
     .searchbar {
         margin-top: 0.1rem;
     }
@@ -138,7 +232,7 @@
     }
 
     .card-cover {
-        height: 9rem;
+        /*height: 9rem;*/
     }
 
     .space {
@@ -146,12 +240,12 @@
         padding-bottom: 0.0rem;
     }
 
-    .card {
-        width: 46%;
-        overflow: hidden;
-        float: left;
-        margin-right: 0;
-    }
+    /*.card {*/
+        /*width: 100%;*/
+        /*overflow: hidden;*/
+        /*float: left;*/
+        /*margin-right: 0;*/
+    /*}*/
 
     .card-header {
         overflow: hidden;

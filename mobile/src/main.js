@@ -83,9 +83,11 @@ router.map({
         name:'success',
         component:Success
     },
-    '/detail':{
+    '/detail/:id':{
         name:'detail',
-        component:ZuopDetail
+        component:function (resolve) {
+            require(['./components/ZuopDetail.vue'], resolve)
+        }
     }
     //'/news/:page': {
     //  component: App
@@ -103,7 +105,9 @@ router.map({
 //})
 //
 router.redirect({
+
     '*': '/'
+    //'/success':'/detail/:id'
 })
 const App = Vue.extend({
     components: {

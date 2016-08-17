@@ -5590,7 +5590,10 @@
     $.getScroller = function(content) {
         //以前默认只能有一个无限滚动，因此infinitescroll都是加在content上，现在允许里面有多个，因此要判断父元素是否有content
         content = content.hasClass('content') ? content : content.parents('.content');
+        console.log(content+":content");
         if (content) {
+            console.log($(content).data('scroller'))
+            console.log($(content).data('scroller')+":content scroller");
             return $(content).data('scroller');
         } else {
             return $('.content.javascript-scroll').data('scroller');
@@ -6117,10 +6120,12 @@
         }
         if (distance > height) distance = height;
         if (onTop) {
+            console.log('aaaa');
             if (scrollTop < distance) {
                 inf.trigger('infinite');
             }
         } else {
+            console.log('aaaa');
             if (scrollTop + height >= scrollHeight - distance) {
                 if (virtualListContainer.length > 0) {
                     virtualList = virtualListContainer[0].f7VirtualList;
@@ -6132,9 +6137,11 @@
 
     }
     $.attachInfiniteScroll = function(infiniteContent) {
+
         $.getScroller(infiniteContent).on('scroll', handleInfiniteScroll);
     };
     $.detachInfiniteScroll = function(infiniteContent) {
+
         $.getScroller(infiniteContent).off('scroll', handleInfiniteScroll);
     };
 
