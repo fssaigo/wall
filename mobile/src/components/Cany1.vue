@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-25">公司</div>
                     <div class="col-75">
-                        <input type="text" v-model="info.company">
+                        <input type="text" v-model="info.zzcompany">
                     </div>
                 </div>
                 <div class="row">
@@ -60,7 +60,7 @@
                 info:{
                     name:null,
                     mobile:null,
-                    company:null,
+                    zzcompany:null,
                     address:null
                 }
 

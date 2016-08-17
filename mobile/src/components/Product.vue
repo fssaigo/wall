@@ -1,8 +1,8 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-    <div class="page">
+    <div class="page" >
 
 
-        <div class="content bg">
+        <div class="content bg" id="content">
             <div id="head">
                 <img src="../imgs/m-banner.jpg" align="absmiddle">
             </div>

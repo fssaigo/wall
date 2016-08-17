@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-25">标题<i>*</i></div>
                     <div class="col-75">
-                        <textarea class="height01" placeholder="标题请直接突出该项目的“之最”特征，如：全球最大单体陶板幕墙—XXX项目"></textarea>
+                        <textarea v-model="detail.title" class="height01" placeholder="标题请直接突出该项目的“之最”特征，如：全球最大单体陶板幕墙—XXX项目"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -32,51 +32,52 @@
                 <div class="row">
                     <div class="col-25">&nbsp;</div>
                     <div class="col-75">
-                        <div  id="imgs">
+                        <div id="imgs">
                             <!--<img class='card-cover'-->
-                                 <!--src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"-->
-                                 <!--alt="">-->
+                            <!--src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"-->
+                            <!--alt="">-->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">项目介绍<i>*</i></div>
                     <div class="col-75">
-                        <textarea
+                        <textarea v-model="detail.description"
                                 placeholder="对项目整体的文字介绍，包含但不限于项目名称、项目地点、项目简介、设计理念、难点亮点、技术参数（能够量化的体现“之最”的数据或信息）"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">业主单位</div>
                     <div class="col-75">
-                        <input type="text">
+                        <input v-model="detail.yzcompany" type="text">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25 re-lineheight">顾问公司<br>/个人</div>
                     <div class="col-75">
-                        <textarea class="height01"></textarea>
+                        <textarea v-model="detail.adviser" class="height01"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25 re-lineheight">幕墙设计<br>单位/个人</div>
                     <div class="col-75">
-                        <textarea class="height01"></textarea>
+                        <textarea v-model="detail.design" class="height01"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25 re-lineheight">幕墙施工<br>单位/个人</div>
                     <div class="col-75">
-                        <textarea class="height01"></textarea>
+                        <textarea v-model="detail.construction" class="height01"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25 re-lineheight">用材品牌</div>
                     <div class="col-75">
-                        <input type="text" placeholder="玻璃、板材、胶、五金件等">
+                        <input v-model="detail.material" type="text" placeholder="玻璃、板材、胶、五金件等">
                     </div>
                 </div>
-
+                <input id="photoIds" type="hidden">
+                <input type="hidden" id="uid" name="uid">
             </form>
 
 
@@ -98,96 +99,130 @@
     import request from 'superagent';
 
     export default {
+        data(){
+            return {
+                info: {
+                    name: null,
+                    mobile: null,
+                    zzcompany: null,
+                    address: null
+                },
+                detail: {
+                    title: null,
+                    description: null,
+                    yzcompany: null,
+                    adviser: null,
+                    design: null,
+                    construction: null,
+                    material: null,
+                    uid:null,
+                    photoIds:null
+                }
+
+            }
+        },
         route: {
             data ({ to }) {
-                let info = JSON.parse(to.params.info);
-                console.log(info.name);
-//                $route.router
+                let info_ = JSON.parse(to.params.info);
+                this.info = info_;
             },
         },
         ready(){
-//          alert(1);
             let img_id_num = 0;
             $("#file").html5Uploader({
-                name: "foo",
-                postUrl: "bar.aspx",
-                onClientLoad:function(e1,e2){
-                    //  console.log(e1);
-                    //    console.log(e2);
-                },
-                onClientLoadEnd:function(e,file){
+                name: "photoFile",
+                postUrl: "/?c=upload&a=photo",
 
-                    img_id_num++;
-                    var newdiv = document.createElement("div");
-                    newdiv.style.width = '5rem';
-                    newdiv.style.height = '5rem';
-                    newdiv.style.float = 'left';
-                    newdiv.style.marginRight = "0.5rem";
-                    newdiv.style.marginBottom = "0.5rem";
-                    $(newdiv).attr("id","img_id_num_"+img_id_num)
-                    $('#imgs').append(newdiv)
+                onSuccess: function (e, file, dhtml) {
+                    var response = JSON.parse(dhtml);
+                    if (response.status == 1) {
+                        var ids = $("#photoIds").val();
+                        if (ids != "") {
+                            var mth = ',' + ids + ',';
+                        } else {
+                            var mth = '';
+                        }
+                        var n = ids.split(',').length - 1;
+                        if (n <= 2) {
+                            if (mth.indexOf(',' + response.data.id + ',') == -1) {
+                                ids += response.data.id + ',';
+                            }
+                            $("#photoIds").val(ids);
 
-//                    var style = '';
-                    $(newdiv).append('<a href="javascript:remove('+img_id_num+')"><i class="iconfont" style="font-size: 18px;">&#xe609;</i></a><lable class="circular"></lable>');
+                            var dstyle = "width:3.6rem;height:3.6rem;float:left;margin-right:0.5rem;margin-bottom:0.5rem;";
+                            var style = "position: absolute;margin-left: 3.1rem;margin-top: -0.6rem;z-index: 99;";
+                            var lstyle = "border-radius: 50%;width: 14px;height: 14px;background-color: white;margin-left:3.1rem; margin-top: -0.2rem;position: absolute;z-index: 98;";
 
-
-                    var div = document.createElement("div");
-                    $(newdiv).append(div);
-                    var img = document.createElement("img");
-
-                    img.style.width = '5rem';
-                    img.style.height = '5rem';
-                    img.file = file;
-                    $(div).append(img);
-                    var reader = new FileReader();
-                    reader.onload = (function(aImg){
-                        return function(e){
-                            aImg.src = e.target.result;
-                        };
-                    })(img);
-                    reader.readAsDataURL(file);
-                },
-
-                onServerAbort:function(t1,t2){
-                    console.log(t1);
-                    console.log(t2);
+                            var iHtml = '<div style="' + dstyle + '" id="img_id_num_' + response.data.id + '">' +
+                                    '<a style="' + style + '" href="javascript:remove(' + response.data.id + ')"><i class="iconfont" style="font-size: 18px;color: red;">&#xe609;</i></a>' +
+                                    '<lable style="' + lstyle + '"></lable>' +
+                                    '<div><img style="width:3.6rem;height: 3.6rem;" src="' + response.data.url + '"></div>' +
+                                    '</div>';
+                            $('#imgs').append(iHtml)
+                        } else {
+                            alert("最多不超过3个图片");
+                        }
+                    } else {
+                        alert(response.message);
+                    }
                 }
             });
         },
-        methods:{
-            remove:function(id){
-                //   $('#img_id_num_'+id).prop('outerHTML', '');
-                $('#img_id_num_'+id).remove();
+        methods: {
+            remove: function (id) {
+                $('#img_id_num_' + id).remove();
             },
-            choice:function(){
+            choice: function () {
                 $('#multiple').click();
 
             },
-            submit:function(){
-//                v-link="'success'"
+            submit: function () {
+                var vm = this;
+                request
+                        .post('/?c=ajax&a=join')
+                        .set('Content-Type', 'application/x-www-form-urlencoded')
+                        .set('Accept', 'application/json')
+                        .send(vm.info)
+                        .end(function (err,res) {
+                            if (err || !res.ok) {
+                                alert('error');
+                            } else {
+                                var result = JSON.parse(res.text);
+                                if(result.status == 0){
+                                    alert(result.msg);
+                                }else{
+                                    vm.detail.uid = result.data.uid;
+                                    vm.detail.photoIds = $("#photoIds").val();
+                                    vm.submitDetail();
+                                }
+                            }
+                        });
+            },
+            submitDetail:function(){
+                request
+                        .post('/?c=ajax&a=work')
+                        .set('Content-Type', 'application/x-www-form-urlencoded')
+                        .set('Accept', 'application/json')
+                        .send(this.detail)
+                        .end(function (err,res) {
+                            if (err || !res.ok) {
+                                alert('Oh no! error');
+                            } else {
+                                var result = JSON.parse(res.text);
+                                if(result.status == 0){
+                                    alert(result.msg);
+                                }else{
+                                    alert('success');
+                                }
+                            }
+                        });
             }
         },
-        events:{
-        }
+        events: {}
     }
 </script>
 <style lang="less" scoped>
-    .circular{
-        border-radius: 50%;
-        width: 14px;
-        height: 14px;
-        background-color: white;
-        margin-left: 112px;
-        margin-top: -2px;
-        position: absolute;
-        z-index: 98;
-    }
-    #imgs a {
-        position: absolute;
-        margin-left: 110px;
-        margin-top: -16px;
-        z-index: 99;
-    }
+
     #input-file {
         position: relative; /* 保证子元素的定位 */
         width: 40%;
@@ -216,9 +251,10 @@
         /* 宽高和外围元素保持一致 */
         height: 1.5rem;
         opacity: 0;
-        -moz-opacity: 0;  /* 兼容老式浏览器 */
+        -moz-opacity: 0; /* 兼容老式浏览器 */
         filter: alpha(opacity=0); /* 兼容IE */
     }
+
     .re-padding {
         padding-bottom: 3rem;
     }
