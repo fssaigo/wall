@@ -109,6 +109,20 @@
 
 
 <style lang="less" scoped>
+     input{
+        -webkit-appearance:none; /*去除系统默认的样式*/
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);   /* 点击高亮的颜色*/
+    }
+     input[type="submit"],
+     input[type="reset"],
+     input[type="button"],
+     button { -webkit-appearance: none; }
+
+    textarea {  -webkit-appearance: none;}
+
+    .bar-tab:before{
+        background-color:#00ffcc;
+    }
 
     .t-img{
         line-height: normal;
@@ -117,7 +131,7 @@
         width:30%;
     }
     p{
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         color: #00ffcc;
         margin-top: 0;
     }
@@ -144,11 +158,12 @@
     }
     input,textarea{
         background: #203948;
-        border: 0.01rem solid #6a92a9;
+        border: 0.03rem #6a92a9 solid!important;
         height: 1.8rem;
         width:100%;
         color: #ffffff;
         padding-left: 0.5rem;
+        border-radius:0;
     }
     textarea{
         height: 5rem;

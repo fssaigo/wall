@@ -246,6 +246,17 @@
     }
 </script>
 <style lang="less" scoped>
+    input{
+        -webkit-appearance:none; /*去除系统默认的样式*/
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);   /* 点击高亮的颜色*/
+    }
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    button { -webkit-appearance: none; }
+
+    textarea {  -webkit-appearance: none;}
+
 
     #input-file {
         position: relative; /* 保证子元素的定位 */
@@ -292,7 +303,7 @@
     }
 
     p {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         color: #00ffcc;
         margin-top: 0;
     }
@@ -326,12 +337,14 @@
     input, textarea {
         font-size: 0.7rem;
         background: #203948;
-        border: 0.01rem solid #6a92a9;
+        border: 0.03rem #6a92a9 solid!important;
         height: 1.8rem;
         width: 100%;
         color: #ffffff;
         padding-left: 0.5rem;
         padding-right: 0.1rem;
+        border-radius:0;
+
     }
 
     textarea {

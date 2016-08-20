@@ -3,7 +3,7 @@
         <ul>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/jz.png"></i>
+                    <i><img src="../imgs/j1.jpg"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">入围奖</div>
@@ -12,7 +12,7 @@
             </li>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/jz.png"></i>
+                    <i><img src="../imgs/j2.jpg"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">最佳人气奖</div>
@@ -21,7 +21,7 @@
             </li>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/jz.png"></i>
+                    <i><img src="../imgs/j3.jpg"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">最佳评论奖</div>
@@ -30,7 +30,7 @@
             </li>
             <li class="row" >
                 <div class="col-img">
-                    <i><img src="../imgs/jz.png"></i>
+                    <i><img src="../imgs/j4.jpg"></i>
                 </div>
                 <div class="col-info">
                     <div class="j-title">转发有奖</div>
@@ -44,10 +44,11 @@
     ul{
         list-style:none;
         padding: 0 0 2rem 0;
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         margin-left: 0.9rem;
         color: #74838d;
-    ;
+        line-height: 0.8rem;
+
     }
     li{
         border-bottom: 0.05rem dotted #6e7c84;
@@ -64,6 +65,9 @@
     .j-title{
         font-size: 0.7rem;
         color: #fff;
+        font-weight: bold;
+        height: 1.2rem;
+        line-height: 1.2rem;
     }
     .col-img{
         width: 25%;

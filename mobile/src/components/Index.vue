@@ -44,7 +44,7 @@
             <p>微信公众号：muqiangzhoukan</p>
             <div>
                 <span>官方活动二维码</span>
-                <!--<img src="../imgs/m-banner.jpg" align="absmiddle">-->
+                <p><img src="../imgs/2wm.png" align="absmiddle"></p>
             </div>
         </div>
     </div>
@@ -70,5 +70,9 @@
     }
     .re-padden{
         margin-left: 0.9rem;
+    }
+    .foot img{
+        width: 6rem;
+        height: 6rem;
     }
 </style>

@@ -242,6 +242,17 @@
 </script>
 
 <style lang="less" scoped>
+    input{
+        -webkit-appearance:none; /*去除系统默认的样式*/
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);   /* 点击高亮的颜色*/
+    }
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    button { -webkit-appearance: none; }
+
+    textarea {  -webkit-appearance: none;}
+
     .swiper-container {
         padding-bottom: 0;
     }
@@ -277,10 +288,14 @@
         border: none;
         color: #ffffff;
         font-size: 0.7rem;
+        color: #c9e0ed;
+    }
+    .iconfont{
+        font-size: 0.7rem;
     }
 
     .item-content {
-        border-bottom: 0.01rem solid #344853;
+        border-bottom: 0.03rem solid #233640!important;
         padding: 0.5rem 0;
         margin-left: 0.1rem;
     }
@@ -320,7 +335,7 @@
 
     .zp-msg p {
         color: #74838d;
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
 
     form.row {
@@ -330,12 +345,13 @@
 
     .zp-msg textarea {
         background: none;
-        border: 0.01rem solid #00ffcc;
-        font-size: 0.5rem;
-        line-height: 0.7rem;
+        border: 0.03rem solid #00ffcc!important;
+        font-size: 0.6rem;
+        line-height: 0.8rem;
         height: 3.2rem;
         resize: none;
         padding: 0.4rem;
+        border-radius: 0;
     }
 
     .zp-msg button {
@@ -352,7 +368,7 @@
     .zp-stat {
         padding: 0.4rem 1rem;
         font-size: 0.5rem;
-        border-bottom: 0.01rem solid #344853;
+        border-bottom: 0.03rem solid #233640!important;
     }
 
     .zp-stat a {
@@ -366,20 +382,20 @@
 
     .zp-info {
         padding: 0rem 1rem 1rem 1rem;
-        border-bottom: 0.01rem solid #344853;
+        border-bottom: 0.03rem solid #233640!important;
     }
 
     .zp-title {
         color: #fefefe;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-bottom: 0.3rem;
         margin-top: 0.6rem;
     }
 
     .zp-description {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         color: #74838d;
-        line-height: 0.7rem;
+        line-height: 0.8rem;
     }
 
     ::-webkit-input-placeholder { /* WebKit browsers */

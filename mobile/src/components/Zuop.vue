@@ -299,4 +299,7 @@
     a {
         color: #333333;
     }
+    .card-footer a.link,.iconfont{
+        font-size: 0.7rem;
+    }
 </style>

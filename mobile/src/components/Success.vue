@@ -14,6 +14,18 @@
 <script>
 </script>
 <style lang="less" scoped>
+    input{
+        -webkit-appearance:none; /*去除系统默认的样式*/
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);   /* 点击高亮的颜色*/
+    }
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    button { -webkit-appearance: none; }
+
+    textarea {  -webkit-appearance: none;}
+
+
     .content
     .iconfont{
         font-size: 4rem;
@@ -30,7 +42,7 @@
     }
     .btn01,.btn02{
         margin: 2rem 0.8rem 0 0.8rem;
-        border: 0.02rem solid #00ffcc;
+        border: 0.1rem #00ffcc solid!important;
         text-align: center;
         font-size: 1rem;
         font-weight: bolder;
