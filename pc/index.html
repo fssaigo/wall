@@ -6,6 +6,33 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>wall</title>
+
+    <script type="text/javascript">
+        if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+            if(window.location.href.indexOf("?mobile")<0){
+                 window.location.href="http://www.zhuanti2016.wangziqing.cc/?c=mobile&a=index";
+                /*
+                 try{
+                 if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+                 alert(1);
+                 window.location.href="http://shipei.qq.com/index.htm";
+                 }else if(/iPad/i.test(navigator.userAgent)){
+                 alert(2);
+                 }else{
+                 alert(3);
+                 window.location.href="http://shipei.qq.com/simple/s/index/"
+                 }
+                 }catch(e){}
+                 */
+            } else{
+                // window.location.href="http://shipei.qq.com/simple/s/index/"
+            }
+        } else{
+          //  window.location.href="http://www.zhuanti2016.wangziqing.cc/?c=index&a=index";
+        }
+
+    </script>
+
     <link rel="stylesheet" href="css/pure-gmb.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">

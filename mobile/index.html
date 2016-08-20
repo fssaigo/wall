@@ -3,14 +3,42 @@
 <head>
     <meta charset="utf-8">
     <title>wall-mobile</title>
+    <script type="text/javascript">
+        if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+            if(window.location.href.indexOf("?mobile")<0){
+               // window.location.href="http://www.zhuanti2016.wangziqing.cc/?c=mobile&a=index";
+                /*
+                 try{
+                 if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+                 alert(1);
+                 window.location.href="http://shipei.qq.com/index.htm";
+                 }else if(/iPad/i.test(navigator.userAgent)){
+                 alert(2);
+                 }else{
+                 alert(3);
+                 window.location.href="http://shipei.qq.com/simple/s/index/"
+                 }
+                 }catch(e){}
+                 */
+            } else{
+                // window.location.href="http://shipei.qq.com/simple/s/index/"
+            }
+        } else{
+            window.location.href="http://www.zhuanti2016.wangziqing.cc/?c=index&a=index";
+        }
+
+    </script>
+
     <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
 
     <!--<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">-->
     <link rel="icon" href="static/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
     <!--<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">-->
+
 </head>
 <body>
 <div id="app">
