@@ -21,11 +21,11 @@
                 </div>
             </div>
             <div class="zp-stat">
-                <a href="#">
+                <a href="javascript:void(0)">
                     <span class="iconfont">&#xe601;</span>
                     评 {{comment_n}}
                 </a>
-                <a href="#">
+                <a href="javascript:void(0)">
                     <a @click="zanT(zan)" href="javascript:void(0)">
                         <span class="iconfont">&#xe607;赞</span>
                         {{zan}}
@@ -93,7 +93,7 @@
                                     },100);
                                 }
                             } else {
-                                alert(result.msg);
+                                $.alert(result.msg);
                             }
                         });
                 vm.list = [];
@@ -129,18 +129,18 @@
                     localStorage.setItem("selfNum_" + id, ++num);
                     request.get('/?c=ajax&a=vote&id=' + id +'&random=' + Math.random()).end(function (err, res) {
                         if (err || !res.ok) {
-                            alert('error');
+                            $.alert('error');
                         } else {
                             var result = JSON.parse(res.text);
                             if (result.status == 1) {
                                 vm.zan = num;
                             } else {
-                                alert(result.msg);
+                                $.alert(result.msg);
                             }
                         }
                     });
                 } else {
-                    alert("你已经赞过了");
+                    $.alert("你已经赞过了");
                 }
 
             },
@@ -148,7 +148,7 @@
                 let vm = this;
                 request.get('/?c=index&a=comment&id=' + vm.$route.params.id + '&offset=' + lastIndex + '&size=' + number + '&random=' + Math.random()).end(function (err, res) {
                     if (err || !res.ok) {
-                        alert('error');
+                        $.alert('error');
                     } else {
                         var result = JSON.parse(res.text);
                         if (result.status == 1) {
@@ -162,7 +162,7 @@
                                 vm.loading = false;
                             }
                         } else {
-                            alert(result.msg);
+                            $.alert(result.msg);
                         }
                     }
 
@@ -173,7 +173,7 @@
                 var vm = this;
                 this.text;
                 if (vm.text == '') {
-                    alert('评价类容不能为空!');
+                    $.alert('评价类容不能为空!');
                 } else {
 
                     request.post('/?c=ajax&a=comment&id=' + vm.$route.params.id + '&random=' + Math.random())
@@ -182,11 +182,11 @@
                             .end(function (err, res) {
 
                                 if (err || !res.ok) {
-                                    alert('error');
+                                    $.alert('error');
                                 } else {
                                     var result = JSON.parse(res.text);
                                     if (result.status == 0) {
-                                        alert(result.msg);
+                                        $.alert(result.msg);
                                     } else {
                                         $.showPreloader('评论成功!');
                                         vm.comment_n++;
@@ -225,9 +225,9 @@
                     // 添加新条目
                     vm.addItems(vm.itemsPerLoad, vm.lastIndex);
                     // 更新最后加载的序号
-                    //   alert($('.card').length)
+                    //   $.alert($('.card').length)
                     vm.lastIndex = $('.list-container li').length + 14;
-                    //  alert(lastIndex)
+                    //  $.alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
                 }, 1000);

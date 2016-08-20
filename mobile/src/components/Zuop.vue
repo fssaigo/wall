@@ -167,7 +167,7 @@
 
                     request.get('/?c=ajax&a=vote&id=' + id + '&random=' + Math.random()).end(function (err, res) {
                         if (err || !res.ok) {
-                            alert('error');
+                            $.alert('error');
                         } else {
                             var result = JSON.parse(res.text);
                             if (result.status == 1) {
@@ -185,12 +185,12 @@
                                 });
 
                             } else {
-                                alert(result.msg);
+                                $.alert(result.msg);
                             }
                         }
                     });
                 } else {
-                    alert("你已经赞过了");
+                    $.alert("你已经赞过了");
                 }
 
             },
@@ -202,7 +202,7 @@
                 }
                 request.get(url).end(function (err, res) {
                     if (err || !res.ok) {
-                        alert('error');
+                        $.alert('error');
                     } else {
                         var result = JSON.parse(res.text);
                         if (result.status == 1) {
@@ -218,7 +218,7 @@
                                 vm.loading = false;
                             }
                         } else {
-                            alert(result.msg);
+                            $.alert(result.msg);
                         }
                     }
                 });
@@ -249,9 +249,9 @@
                     // 添加新条目
                     vm.addItems(vm.itemsPerLoad, vm.lastIndex,vm.searchText);
                     // 更新最后加载的序号
-                    //   alert($('.card').length)
+                    //   $.alert($('.card').length)
                     vm.lastIndex = $('.cd').length + 14;
-                    //  alert(lastIndex)
+                    //  $.alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
                 }, 1000);

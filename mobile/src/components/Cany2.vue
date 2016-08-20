@@ -175,7 +175,7 @@
                                         });
                                     }
                                 } else {
-                                    alert(result.msg);
+                                    $.alert(result.msg);
                                 }
                             });
                 }
@@ -207,7 +207,7 @@
                         var ids = $("#photoIds").val();
                         vm.appendImg(id,ids,response.data.url);
                     } else {
-                        alert(response.message);
+                        $.alert(response.message);
                     }
                 }
             });
@@ -245,11 +245,27 @@
                             '</div>';
                     $('#imgs').append(iHtml)
                 } else {
-                    alert("最多不超过3个图片");
+                    $.alert("最多不超过3个图片");
                 }
             },
             submit: function () {
                 var vm = this;
+                if(vm.detail.title == ''){
+                    $.alert('请输入标题!');
+
+                    return;
+                }
+
+                if(vm.detail.description == ''){
+                    $.alert('请输入项目介绍!');
+
+                    return;
+                }
+                if($("#photoIds").val() == ''){
+                    $.alert('请上传图片!');
+
+                    return;
+                }
                 request
                         .post('/?c=ajax&a=join')
                         .set('Content-Type', 'application/x-www-form-urlencoded')
@@ -257,11 +273,11 @@
                         .send(vm.info)
                         .end(function (err, res) {
                             if (err || !res.ok) {
-                                alert('error');
+                                $.alert('error');
                             } else {
                                 var result = JSON.parse(res.text);
                                 if (result.status == 0) {
-                                    alert(result.msg);
+                                    $.alert(result.msg);
                                 } else {
                                     vm.detail.uid = result.data.uid;
                                     vm.detail.photoIds = $("#photoIds").val();
@@ -279,11 +295,11 @@
                         .send(vm.detail)
                         .end(function (err, res) {
                             if (err || !res.ok) {
-                                alert('Oh no! error');
+                                $.alert('Oh no! error');
                             } else {
                                 var result = JSON.parse(res.text);
                                 if (result.status == 0) {
-                                    alert(result.msg);
+                                    $.alert(result.msg);
                                 } else {
                                     var ids = vm.detail.photoIds;
                                     var n = ids.split(',');

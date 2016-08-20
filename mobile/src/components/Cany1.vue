@@ -77,7 +77,7 @@
                                         vm.info.address = result.data.address;
                                     }
                                 } else {
-                                    alert(result.msg);
+                                    $.alert(result.msg);
                                 }
                             });
                 }
@@ -99,12 +99,12 @@
             next:function(){
                 let vm = this;
                 if(vm.info.name == ''){
-                    alert('姓名不能为空');
+                    $.alert('姓名不能为空!');
                     return;
                 }
                 var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
                 if(!myreg.test(vm.info.mobile)) {
-                    alert('请输入有效的手机号码');
+                    $.alert('请输入正确的的手机号码!');
                     return;
                 }
                 this.$route.router.go({ name: 'cany2', params: {work_id:vm.info.work_id,info: JSON.stringify(this.info) }})
