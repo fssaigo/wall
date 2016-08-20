@@ -68,6 +68,10 @@ router.map({
                 name:'zuop',
                 component:Zuop
             },
+            '/zuop/:tel':{
+                name:'zuop',
+                component:Zuop
+            },
 
         }
     },
@@ -75,11 +79,19 @@ router.map({
         name:'cany1',
         component:Cany1
     },
+    '/cany1/:work_id/:uid':{
+        name:'cany1',
+        component:Cany1
+    },
     '/cany2/:info':{
         name:'cany2',
         component:Cany2
     },
-    '/success':{
+    '/cany2/:work_id/:info':{
+        name:'cany2',
+        component:Cany2
+    },
+    '/success/:tel':{
         name:'success',
         component:Success
     },

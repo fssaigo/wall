@@ -40,13 +40,16 @@
 <script>
     export default {
         route:{
-            activate:function(transition){
-                console.log(transition.to.name)
-//                alert(1);
-//                console.log(transition.to.name);
+            data ({ to }) {
                 this.navigations.map(function (v, i) {
-                    transition.to.name == v.path ?v.isFocus = true:v.isFocus = false;
+                    '/'+to.name == v.path ?v.isFocus = true:v.isFocus = false;
                 });
+              //  vm.tel = to.params.tel;
+            },
+            activate:function(transition){
+//                this.navigations.map(function (v, i) {
+//                    transition.to.name == v.path ?v.isFocus = true:v.isFocus = false;
+//                });
                 transition.next();
             }
         },
@@ -56,10 +59,10 @@
         data () {
             return {
                 navigations: [
-                    {path: 'index', text: '活动说明', isFocus: false},
-                    {path: 'jl', text: '奖项设置', isFocus: false},
-                    {path: 'rule', text: '活动规则', isFocus: false},
-                    {path: 'zuop', text: '作品展示', isFocus: false},
+                    {path: '/index', text: '活动说明', isFocus: false,append: false},
+                    {path: '/jl', text: '奖项设置', isFocus: false,append: false},
+                    {path: '/rule', text: '活动规则', isFocus: false,append: false},
+                    {path: '/zuop', text: '作品展示', isFocus: false,append: false},
                 ]
             }
         },
@@ -71,7 +74,7 @@
                 this.$route.router.go(this.navigations[index].path)
             },
             canyu:function(){
-                this.$route.router.go('cany1')
+                this.$route.router.go('/cany1')
             }
         }
     }

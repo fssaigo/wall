@@ -59,7 +59,11 @@
         route: {
             data ({ to }) {
                 let vm = this;
-                let userId = getCookie('userId');
+                vm.info.work_id = to.params.work_id;
+                console.log(to.params)
+                let userId = to.params.uid;
+                if(!userId)
+                    userId = getCookie('userId');
                 if(userId){
                     request.get('/?c=ajax&a=user&id='+userId)
                             .end(function (err, res) {
@@ -85,7 +89,8 @@
                     name:'',
                     mobile:'',
                     zzcompany:'',
-                    address:''
+                    address:'',
+                    work_id:null
                 }
 
             }
@@ -97,11 +102,12 @@
                     alert('姓名不能为空');
                     return;
                 }
-                if(vm.info.mobile == ''){
-                    alert('电话不能为空');
+                var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+                if(!myreg.test(vm.info.mobile)) {
+                    alert('请输入有效的手机号码');
                     return;
                 }
-                this.$route.router.go({ name: 'cany2', params: { info: JSON.stringify(this.info) }})
+                this.$route.router.go({ name: 'cany2', params: {work_id:vm.info.work_id,info: JSON.stringify(this.info) }})
             }
         }
     }

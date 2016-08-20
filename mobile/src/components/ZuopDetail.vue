@@ -80,7 +80,6 @@
                 vm.text = '';
                 request.get('/?c=index&a=show&id=' + id + "&random=" + Math.random())
                         .end(function (err, res) {
-                            console.log(res);
                             var result = JSON.parse(res.text);
                             if (result.status == 1) {
                                 if (result.data) {
@@ -115,8 +114,8 @@
                 comment_n:0,
                 zan:0,
                 maxItems:1000,
-                itemsPerLoad : 10,
-                lastIndex : 10
+                itemsPerLoad : 14,
+                lastIndex : 14
             }
         },
         methods: {
@@ -185,7 +184,6 @@
                                 if (err || !res.ok) {
                                     alert('error');
                                 } else {
-                                    console.log(res);
                                     var result = JSON.parse(res.text);
                                     if (result.status == 0) {
                                         alert(result.msg);
@@ -194,7 +192,7 @@
                                         vm.comment_n++;
                                         vm.list = [];
                                         vm.text = '';
-                                        vm.lastIndex = 10;
+                                        vm.lastIndex = 14;
                                         vm.addItems(vm.itemsPerLoad, 0);
                                         setTimeout(function () {
                                             $.hidePreloader();
@@ -228,7 +226,7 @@
                     vm.addItems(vm.itemsPerLoad, vm.lastIndex);
                     // 更新最后加载的序号
                     //   alert($('.card').length)
-                    vm.lastIndex = $('.list-container li').length + 10;
+                    vm.lastIndex = $('.list-container li').length + 14;
                     //  alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();

@@ -117,21 +117,72 @@
                     construction: '',
                     material: '',
                     uid: '',
-                    photoIds: ''
+                    photoIds: '',
+                    workId:null
                 }
-
             }
         },
         route: {
             data ({ to }) {
+                let vm = this;
                 if (to.params.info != 'success') {
                     let info_ = JSON.parse(to.params.info);
-                    this.info = info_;
+                    vm.info = info_;
+
                 }
-                this.detail = {};
+                vm.detail = {
+                    title: '',
+                    description: '',
+                    yzcompany: '',
+                    adviser: '',
+                    design: '',
+                    construction: '',
+                    material: '',
+                    uid: '',
+                    photoIds: '',
+                    workId:null
+                };
+                setTimeout(function(){
+                    var ids = $("#photoIds").val();
+                    var n = ids.split(',');
+                    for (var i = 0; i < n.length; i++) {
+                        remove(n[i]);
+                    }
+                },200);
+
+
+                vm.detail.workId=to.params.work_id;
+                if(vm.detail.workId && vm.detail.workId != ':work_id'){
+
+                    request.get('/?c=index&a=show&id=' + vm.detail.workId + "&random=" + Math.random())
+                            .end(function (err, res) {
+                                var result = JSON.parse(res.text);
+                                if (result.status == 1) {
+                                    if (result.data) {
+                                        var r = result.data;
+                                        vm.detail.yzcompany = r.company;
+                                        vm.detail.title = r.title;
+                                        vm.detail.description = r.description;
+                                        vm.detail.adviser = r.adviser;
+                                        vm.detail.design = r.design;
+                                        vm.detail.material = r.material;
+                                        vm.detail.construction = r.construction;
+
+
+                                        result.ablum.map(function (v, i) {
+                                            var ids = $("#photoIds").val();
+                                            vm.appendImg(v.work_ablum_id,ids, v.src);
+                                        });
+                                    }
+                                } else {
+                                    alert(result.msg);
+                                }
+                            });
+                }
             }
         },
         ready(){
+            let vm = this;
             function remove(id) {
                 $('#img_id_num_' + id).remove();
                 var ids = ',' + $("#photoIds").val();
@@ -139,7 +190,6 @@
                 var nid = ods.substring(1);
                 $("#photoIds").val(nid);
             }
-            let img_id_num = 0;
             $("#file").html5Uploader({
                 name: "photoFile",
                 postUrl: "/?c=upload&a=photo",
@@ -153,32 +203,9 @@
                     $.hidePreloader();
                     var response = JSON.parse(dhtml);
                     if (response.status == 1) {
+                        var id = response.data.id;
                         var ids = $("#photoIds").val();
-                        if (ids != "") {
-                            var mth = ',' + ids + ',';
-                        } else {
-                            var mth = '';
-                        }
-                        var n = ids.split(',').length - 1;
-                        if (n <= 2) {
-                            if (mth.indexOf(',' + response.data.id + ',') == -1) {
-                                ids += response.data.id + ',';
-                            }
-                            $("#photoIds").val(ids);
-
-                            var dstyle = "width:3.6rem;height:3.6rem;float:left;margin-right:0.5rem;margin-bottom:0.5rem;";
-                            var style = "position: absolute;margin-left: 3.1rem;margin-top: -0.6rem;z-index: 99;";
-                            var lstyle = "border-radius: 50%;width: 14px;height: 14px;background-color: white;margin-left:3.1rem; margin-top: -0.2rem;position: absolute;z-index: 98;";
-
-                            var iHtml = '<div style="' + dstyle + '" id="img_id_num_' + response.data.id + '">' +
-                                    '<a style="' + style + '" href="javascript:remove(' + response.data.id + ')"><i class="iconfont" style="font-size: 18px;color: red;">&#xe609;</i></a>' +
-                                    '<lable style="' + lstyle + '"></lable>' +
-                                    '<div><img style="width:3.6rem;height: 3.6rem;" src="' + response.data.url + '"></div>' +
-                                    '</div>';
-                            $('#imgs').append(iHtml)
-                        } else {
-                            alert("最多不超过3个图片");
-                        }
+                        vm.appendImg(id,ids,response.data.url);
                     } else {
                         alert(response.message);
                     }
@@ -193,6 +220,33 @@
             choice: function () {
                 $('#multiple').click();
 
+            },
+            appendImg(id,ids,url){
+                if (ids != "") {
+                    var mth = ',' + ids + ',';
+                } else {
+                    var mth = '';
+                }
+                var n = ids.split(',').length - 1;
+                if (n <= 2) {
+                    if (mth.indexOf(',' + id + ',') == -1) {
+                        ids += id + ',';
+                    }
+                    $("#photoIds").val( ids);
+
+                    var dstyle = "width:3.6rem;height:3.6rem;float:left;margin-right:0.5rem;margin-bottom:0.5rem;";
+                    var style = "position: absolute;margin-left: 3.1rem;margin-top: -0.6rem;z-index: 99;";
+                    var lstyle = "border-radius: 50%;width: 14px;height: 14px;background-color: white;margin-left:3.1rem; margin-top: -0.2rem;position: absolute;z-index: 98;";
+
+                    var iHtml = '<div style="' + dstyle + '" id="img_id_num_' + id + '">' +
+                            '<a style="' + style + '" href="javascript:remove(' + id + ')"><i class="iconfont" style="font-size: 18px;color: red;">&#xe609;</i></a>' +
+                            '<lable style="' + lstyle + '"></lable>' +
+                            '<div><img style="width:3.6rem;height: 3.6rem;" src="' + url + '"></div>' +
+                            '</div>';
+                    $('#imgs').append(iHtml)
+                } else {
+                    alert("最多不超过3个图片");
+                }
             },
             submit: function () {
                 var vm = this;
@@ -222,7 +276,7 @@
                         .post('/?c=ajax&a=work')
                         .set('Content-Type', 'application/x-www-form-urlencoded')
                         .set('Accept', 'application/json')
-                        .send(this.detail)
+                        .send(vm.detail)
                         .end(function (err, res) {
                             if (err || !res.ok) {
                                 alert('Oh no! error');
@@ -236,10 +290,13 @@
                                     for (var i = 0; i < n.length; i++) {
                                         remove(n[i]);
                                     }
-                                    vm.$route.router.go({path: '/success', append: false});
+
+                                    vm.$route.router.go({name: 'success', params:{tel:vm.info.mobile},append: false});
                                 }
                             }
                         });
+
+
             }
         },
         events: {}
@@ -269,6 +326,7 @@
         cursor: pointer;
     }
 
+
     #text {
         display: inline-block;
         vertical-align: middle;
@@ -281,10 +339,11 @@
     #file {
         display: block;
         position: absolute;
+        width: 100%;
         top: 0;
         left: 0;
         /* 宽高和外围元素保持一致 */
-        height: 1.5rem;
+        height: 1.8rem;
         opacity: 0;
         -moz-opacity: 0; /* 兼容老式浏览器 */
         filter: alpha(opacity=0); /* 兼容IE */

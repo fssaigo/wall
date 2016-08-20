@@ -1,14 +1,15 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div>
-        <!--<div class="bar bar-header-secondary re-bar">-->
-        <!--<div class="searchbar">-->
-        <!--<a class="searchbar-cancel re-cancel">取消</a>-->
-        <!--<div class="search-input re-input">-->
-        <!--<label class="icon icon-search" for="search"></label>-->
-        <!--<input type="search" id='search' placeholder='输入您的手机号检索您的作品'/>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
+        <div class="bar bar-header-secondary re-bar">
+            <div class="searchbar">
+                <a class="searchbar-cancel re-cancel" @click="cancel">取消</a>
+                <div class="search-input re-input">
+                    <label class="icon icon-search" for="search"></label>
+                    <input type="search" id='search'
+                           v-model="searchText" placeholder='输入您的手机号检索您的作品' @blur="search" @keyup.esc="search" @keyup.enter="search"/>
+                </div>
+            </div>
+        </div>
         <div class="content-padded myfont" id="content_zuop">
             <div class="infinite-scroll infinite-scroll-bottom" data-distance="0" id="list">
 
@@ -34,9 +35,13 @@
 
                                 </a>
 
-                                <a v-link="{ name: 'detail', params: { id: item.work_id }}" class="link">
+                                <a  v-link="{ name: 'detail', params: { id: item.work_id }}" class="link">
                                     <span class="iconfont">&#xe601;</span>
                                     评论 {{item.comment}}
+                                </a>
+                                <a v-if="show"  v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}" class="link">
+                                    <span class="iconfont">&#xe60b;</span>
+
                                 </a>
                             </div>
                         </div>
@@ -64,6 +69,10 @@
                                 <a v-link="{ name: 'detail', params: { id: item.work_id }}" class="link">
                                     <span class="iconfont">&#xe601;</span>
                                     评论 {{item.comment}}
+                                </a>
+                                <a v-if="show" v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}" class="link">
+                                    <span class="iconfont">&#xe60b;</span>
+
                                 </a>
                             </div>
                         </div>
@@ -97,8 +106,10 @@
                 list2: [],
                 loading: false,
                 maxItems: 1000,
-                itemsPerLoad: 10,
-                lastIndex: 10
+                itemsPerLoad: 14,
+                lastIndex: 14,
+                searchText: '',
+                show: false
             }
         },
         route: {
@@ -107,12 +118,45 @@
                 vm.loading = false;
                 vm.list1 = [];
                 vm.list2 = [];
-                vm.lastIndex = 10;
+                vm.lastIndex = 14;
+
+
+                vm.searchText = to.params.tel;
                 //预先加载条
-                vm.addItems(vm.itemsPerLoad, 0);
+                vm.addItems(vm.itemsPerLoad, 0,vm.searchText);
+                var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+                if (myreg.test(vm.searchText)) {
+                    vm.show = true;
+                } else {
+                    vm.show = false;
+                }
             }
         },
         methods: {
+            cancel: function () {
+                let vm = this;
+                vm.show = false;
+                vm.searchText = '';
+                vm.loading = false;
+                vm.list1 = [];
+                vm.list2 = [];
+                vm.lastIndex = 14;
+                vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
+            },
+            search: function (e) {
+                let vm = this;
+                vm.loading = false;
+                vm.list1 = [];
+                vm.list2 = [];
+                vm.lastIndex = 14;
+                vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
+                var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+                if (myreg.test(vm.searchText)) {
+                    vm.show = true;
+                } else {
+                    vm.show = false;
+                }
+            },
             zanT: function (id, num) {
                 let vm = this;
                 if (!localStorage.getItem("selfNum_" + id)) {
@@ -150,28 +194,25 @@
                 }
 
             },
-            addItems: function (number, lastIndex) {
+            addItems: function (number, lastIndex, keyword) {
                 let vm = this;
-                request.get('/?c=index&a=works&offset=' + lastIndex + '&size=' + number + '&random=' + Math.random()).end(function (err, res) {
+                let url = '/?c=index&a=works&offset=' + lastIndex + '&size=' + number + '&random=' + Math.random();
+                if (keyword) {
+                    url += '&keyword=' + keyword;
+                }
+                request.get(url).end(function (err, res) {
                     if (err || !res.ok) {
                         alert('error');
                     } else {
                         var result = JSON.parse(res.text);
                         if (result.status == 1) {
                             if (result.data) {
-                                console.log(result.data);
                                 var i = 0;
-                                var k = 1;
-                                if(result.data.length>1){
-                                    k = 2;
-                                }
-                                for (; i < result.data.length; i += k) {
+                                for (; i < result.data.length; i += 2) {
                                     vm.list1.push(result.data[i]);
-                                    if(k == 2)
+                                    if ((i + 1) < result.data.length) {
                                         vm.list2.push(result.data[i + 1]);
-                                }
-                                if (i > result.data.length) {
-                                    vm.list1.push(result.data[i - 1]);
+                                    }
                                 }
                             } else {
                                 vm.loading = false;
@@ -206,10 +247,10 @@
                         return;
                     }
                     // 添加新条目
-                    vm.addItems(vm.itemsPerLoad, vm.lastIndex);
+                    vm.addItems(vm.itemsPerLoad, vm.lastIndex,vm.searchText);
                     // 更新最后加载的序号
                     //   alert($('.card').length)
-                    vm.lastIndex = $('.cd').length + 10;
+                    vm.lastIndex = $('.cd').length + 14;
                     //  alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
@@ -299,7 +340,8 @@
     a {
         color: #333333;
     }
-    .card-footer a.link,.iconfont{
+
+    .card-footer a.link, .iconfont {
         font-size: 0.7rem;
     }
 </style>
