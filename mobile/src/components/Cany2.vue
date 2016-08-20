@@ -23,7 +23,7 @@
                     <div class="col-75">
                         <div id="input-file">
                             <span id="text">点击上传</span>
-                            <input type="file"  class="width03" id="file">
+                            <input type="file" class="width03" id="file">
                         </div>
                         <!--<input class="img-button" type="button" @click="choice" value="选择图片" >-->
                         <!--<input type="text">-->
@@ -87,7 +87,7 @@
             <table width="100%" height="100%" class="cy">
                 <tr @click="submit">
                     <td align="center">
-                        <span >提交作品</span>
+                        <span>提交作品</span>
                     </td>
                 </tr>
             </table>
@@ -118,7 +118,7 @@
                     material: '',
                     uid: '',
                     photoIds: '',
-                    workId:null
+                    workId: null
                 }
             }
         },
@@ -140,19 +140,19 @@
                     material: '',
                     uid: '',
                     photoIds: '',
-                    workId:null
+                    workId: null
                 };
-                setTimeout(function(){
+                setTimeout(function () {
                     var ids = $("#photoIds").val();
                     var n = ids.split(',');
                     for (var i = 0; i < n.length; i++) {
                         remove(n[i]);
                     }
-                },200);
+                }, 100);
 
 
-                vm.detail.workId=to.params.work_id;
-                if(vm.detail.workId && vm.detail.workId != ':work_id'){
+                vm.detail.workId = to.params.work_id;
+                if (vm.detail.workId && vm.detail.workId != ':work_id') {
 
                     request.get('/?c=index&a=show&id=' + vm.detail.workId + "&random=" + Math.random())
                             .end(function (err, res) {
@@ -168,11 +168,12 @@
                                         vm.detail.material = r.material;
                                         vm.detail.construction = r.construction;
 
-
-                                        result.ablum.map(function (v, i) {
-                                            var ids = $("#photoIds").val();
-                                            vm.appendImg(v.work_ablum_id,ids, v.src);
-                                        });
+                                        setTimeout(function () {
+                                            result.ablum.map(function (v, i) {
+                                                var ids = $("#photoIds").val();
+                                                vm.appendImg(v.work_ablum_id, ids, v.src);
+                                            });
+                                        }, 150);
                                     }
                                 } else {
                                     $.alert(result.msg);
@@ -183,6 +184,7 @@
         },
         ready(){
             let vm = this;
+
             function remove(id) {
                 $('#img_id_num_' + id).remove();
                 var ids = ',' + $("#photoIds").val();
@@ -190,13 +192,14 @@
                 var nid = ods.substring(1);
                 $("#photoIds").val(nid);
             }
+
             $("#file").html5Uploader({
                 name: "photoFile",
                 postUrl: "/?c=upload&a=photo",
-                onServerError:function(){
+                onServerError: function () {
                     $.hidePreloader();
                 },
-                onServerLoadStart:function(){
+                onServerLoadStart: function () {
                     $.showPreloader('正在上传...');
                 },
                 onSuccess: function (e, file, dhtml) {
@@ -205,7 +208,7 @@
                     if (response.status == 1) {
                         var id = response.data.id;
                         var ids = $("#photoIds").val();
-                        vm.appendImg(id,ids,response.data.url);
+                        vm.appendImg(id, ids, response.data.url);
                     } else {
                         $.alert(response.message);
                     }
@@ -221,7 +224,7 @@
                 $('#multiple').click();
 
             },
-            appendImg(id,ids,url){
+            appendImg(id, ids, url){
                 if (ids != "") {
                     var mth = ',' + ids + ',';
                 } else {
@@ -232,7 +235,7 @@
                     if (mth.indexOf(',' + id + ',') == -1) {
                         ids += id + ',';
                     }
-                    $("#photoIds").val( ids);
+                    $("#photoIds").val(ids);
 
                     var dstyle = "width:3.6rem;height:3.6rem;float:left;margin-right:0.5rem;margin-bottom:0.5rem;";
                     var style = "position: absolute;margin-left: 3.1rem;margin-top: -0.6rem;z-index: 99;";
@@ -250,18 +253,18 @@
             },
             submit: function () {
                 var vm = this;
-                if(vm.detail.title == ''){
+                if (vm.detail.title == '') {
                     $.alert('请输入标题!');
 
                     return;
                 }
 
-                if(vm.detail.description == ''){
+                if (vm.detail.description == '') {
                     $.alert('请输入项目介绍!');
 
                     return;
                 }
-                if($("#photoIds").val() == ''){
+                if ($("#photoIds").val() == '') {
                     $.alert('请上传图片!');
 
                     return;
@@ -307,7 +310,11 @@
                                         remove(n[i]);
                                     }
 
-                                    vm.$route.router.go({name: 'success', params:{tel:vm.info.mobile},append: false});
+                                    vm.$route.router.go({
+                                        name: 'success',
+                                        params: {tel: vm.info.mobile},
+                                        append: false
+                                    });
                                 }
                             }
                         });
@@ -319,17 +326,21 @@
     }
 </script>
 <style lang="less" scoped>
-    input{
-        -webkit-appearance:none; /*去除系统默认的样式*/
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);   /* 点击高亮的颜色*/
+    input {
+        -webkit-appearance: none; /*去除系统默认的样式*/
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* 点击高亮的颜色*/
     }
+
     input[type="submit"],
     input[type="reset"],
     input[type="button"],
-    button { -webkit-appearance: none; }
+    button {
+        -webkit-appearance: none;
+    }
 
-    textarea {  -webkit-appearance: none;}
-
+    textarea {
+        -webkit-appearance: none;
+    }
 
     #input-file {
         position: relative; /* 保证子元素的定位 */
@@ -341,7 +352,6 @@
         text-align: center;
         cursor: pointer;
     }
-
 
     #text {
         display: inline-block;
@@ -412,13 +422,13 @@
     input, textarea {
         font-size: 0.7rem;
         background: #203948;
-        border: 0.03rem #6a92a9 solid!important;
+        border: 0.03rem #6a92a9 solid !important;
         height: 1.8rem;
         width: 100%;
         color: #ffffff;
         padding-left: 0.5rem;
         padding-right: 0.1rem;
-        border-radius:0;
+        border-radius: 0;
 
     }
 

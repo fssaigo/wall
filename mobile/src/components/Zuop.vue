@@ -40,7 +40,7 @@
                                     评论 {{item.comment}}
                                 </a>
                                 <a v-if="show"  v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}" class="link">
-                                    <span class="iconfont">&#xe60b;</span>
+                                    <span class="iconfont" style="font-size: 16px;">&#xe60b;</span>
 
                                 </a>
                             </div>
@@ -71,7 +71,7 @@
                                     评论 {{item.comment}}
                                 </a>
                                 <a v-if="show" v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}" class="link">
-                                    <span class="iconfont">&#xe60b;</span>
+                                    <span class="iconfont" style="font-size: 16px;">&#xe60b;</span>
 
                                 </a>
                             </div>
