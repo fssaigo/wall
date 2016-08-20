@@ -1,22 +1,22 @@
 <template>
     <div>
-        <div class="bar bar-header-secondary re-bar">
-            <div class="searchbar">
-                <a class="searchbar-cancel re-cancel">取消</a>
-                <div class="search-input re-input">
-                    <label class="icon icon-search" for="search"></label>
-                    <input type="search" id='search' placeholder='输入您的手机号检索您的作品'/>
-                </div>
-            </div>
-        </div>
+        <!--<div class="bar bar-header-secondary re-bar">-->
+        <!--<div class="searchbar">-->
+        <!--<a class="searchbar-cancel re-cancel">取消</a>-->
+        <!--<div class="search-input re-input">-->
+        <!--<label class="icon icon-search" for="search"></label>-->
+        <!--<input type="search" id='search' placeholder='输入您的手机号检索您的作品'/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
         <div class="content-padded myfont" id="content_zuop">
-            <div class="infinite-scroll infinite-scroll-bottom" data-distance="100" id="list">
+            <div class="infinite-scroll infinite-scroll-bottom" data-distance="0" id="list">
 
                 <div class="row">
                     <div class="col-50">
                         <div class="cd" v-for='item in list1'>
                             <div valign="bottom" class="card-header color-white no-border no-padding">
-                                <a  v-link="{ name: 'detail', params: { id: item.work_id }}">
+                                <a v-link="{ name: 'detail', params: { id: item.work_id }}">
                                     <img class='card-cover' src={{item.picture}}>
                                 </a>
                             </div>
@@ -43,10 +43,10 @@
 
                     </div>
                     <div class="col-50">
-                        <div class="cd"  v-for='item in list2'>
+                        <div class="cd" v-for='item in list2'>
                             <div valign="bottom" class="card-header color-white no-border no-padding">
-                                <a  v-link="{ name: 'detail', params: { id: item.work_id }}">
-                                    <img class='card-cover' src={{item.picture}} >
+                                <a v-link="{ name: 'detail', params: { id: item.work_id }}">
+                                    <img class='card-cover' src={{item.picture}}>
                                 </a>
                             </div>
                             <div class="card-content">
@@ -87,7 +87,7 @@
         <div class="space">&nbsp;</div>
     </div>
 </template>
-<script >
+<script>
     import request from 'superagent';
 
     export default {
@@ -95,16 +95,25 @@
             return {
                 list1: [],
                 list2: [],
-                loading: false
+                loading: false,
+                maxItems: 1000,
+                itemsPerLoad: 10,
+                lastIndex: 10
             }
         },
         route: {
             data ({ to }) {
-                this.loading = false;
+                let vm = this;
+                vm.loading = false;
+                vm.list1 = [];
+                vm.list2 = [];
+                vm.lastIndex = 10;
+                //预先加载条
+                vm.addItems(vm.itemsPerLoad, 0);
             }
         },
-        methods:{
-            zanT:function(id,num){
+        methods: {
+            zanT: function (id, num) {
                 let vm = this;
                 if (!localStorage.getItem("selfNum_" + id)) {
                     localStorage.setItem("selfNum_" + id, 0);
@@ -112,20 +121,20 @@
                 if (localStorage.getItem("selfNum_" + id) <= 0) {
                     localStorage.setItem("selfNum_" + id, ++num);
 
-                    request.get('/?c=ajax&a=vote&id=' + id +'&random=' + Math.random()).end(function (err, res) {
+                    request.get('/?c=ajax&a=vote&id=' + id + '&random=' + Math.random()).end(function (err, res) {
                         if (err || !res.ok) {
                             alert('error');
                         } else {
                             var result = JSON.parse(res.text);
                             if (result.status == 1) {
                                 vm.list1.map(function (v, index) {
-                                    if(v.work_id == id){
+                                    if (v.work_id == id) {
                                         v.zan++;
                                         return;
                                     }
                                 });
                                 vm.list2.map(function (v, index) {
-                                    if(v.work_id == id){
+                                    if (v.work_id == id) {
                                         v.zan++;
                                         return;
                                     }
@@ -141,19 +150,8 @@
                 }
 
             },
-        },
-        ready(){
-            $.init();
-            let vm = this;
-            // 最多可加载的条目
-            let maxItems = 1000;
-            // 每次加载添加多少条目
-            let itemsPerLoad = 10
-            // 上次加载的序号
-            let lastIndex = 10;
-
-
-            function addItems(number, lastIndex) {
+            addItems: function (number, lastIndex) {
+                let vm = this;
                 request.get('/?c=index&a=works&offset=' + lastIndex + '&size=' + number + '&random=' + Math.random()).end(function (err, res) {
                     if (err || !res.ok) {
                         alert('error');
@@ -162,17 +160,19 @@
                         if (result.status == 1) {
                             if (result.data) {
                                 console.log(result.data);
-                                var i =0;
-                                for(;i<result.data.length;i+=2){
+                                var i = 0;
+                                var k = 1;
+                                if(result.data.length>1){
+                                    k = 2;
+                                }
+                                for (; i < result.data.length; i += k) {
                                     vm.list1.push(result.data[i]);
-                                    vm.list2.push(result.data[i+1]);
+                                    if(k == 2)
+                                        vm.list2.push(result.data[i + 1]);
                                 }
-                                if(i>result.data.length){
-                                    vm.list1.push(result.data[i-1]);
+                                if (i > result.data.length) {
+                                    vm.list1.push(result.data[i - 1]);
                                 }
-//                                result.data.map(function (v, index) {
-//                                    vm.list.push(v);
-//                                });
                             } else {
                                 vm.loading = false;
                             }
@@ -183,9 +183,11 @@
                 });
 
             }
+        },
+        ready(){
+            $.init();
+            let vm = this;
 
-            //预先加载条
-            addItems(itemsPerLoad, 0);
             // 注册'infinite'事件处理函数
             $('#content').on('infinite', function () {
                 // 如果正在加载，则退出
@@ -196,7 +198,7 @@
                 setTimeout(function () {
                     // 重置加载flag
                     vm.loading = false;
-                    if (lastIndex >= maxItems) {
+                    if (vm.lastIndex >= vm.maxItems) {
                         // 加载完毕，则注销无限加载事件，以防不必要的加载
                         $.detachInfiniteScroll($('.infinite-scroll'));
                         // 删除加载提示符
@@ -204,10 +206,10 @@
                         return;
                     }
                     // 添加新条目
-                    addItems(itemsPerLoad, lastIndex);
+                    vm.addItems(vm.itemsPerLoad, vm.lastIndex);
                     // 更新最后加载的序号
                     //   alert($('.card').length)
-                    lastIndex = $('.cd').length + 10;
+                    vm.lastIndex = $('.cd').length + 10;
                     //  alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
@@ -217,12 +219,13 @@
     }
 </script>
 <style lang="less" scoped>
-    .cd{
+    .cd {
         background-color: white;
         margin-top: 0.5rem;
         border-radius: 0.1rem;
         position: relative;
     }
+
     .searchbar {
         margin-top: 0.1rem;
     }
@@ -241,10 +244,10 @@
     }
 
     /*.card {*/
-        /*width: 100%;*/
-        /*overflow: hidden;*/
-        /*float: left;*/
-        /*margin-right: 0;*/
+    /*width: 100%;*/
+    /*overflow: hidden;*/
+    /*float: left;*/
+    /*margin-right: 0;*/
     /*}*/
 
     .card-header {

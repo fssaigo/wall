@@ -42,7 +42,7 @@
                 </form>
 
                 <p>听听大家怎么说..</p>
-                <div class="infinite-scroll infinite-scroll-bottom" data-distance="100" id="comment">
+                <div class="infinite-scroll infinite-scroll-bottom" data-distance="0" id="comment">
 
                     <div class="list-block">
                         <ul class="list-container">
@@ -97,6 +97,10 @@
                                 alert(result.msg);
                             }
                         });
+                vm.list = [];
+                vm.text = '';
+                vm.lastIndex = 10;
+                vm.addItems(vm.itemsPerLoad, 0);
             }
 
         },
@@ -109,7 +113,10 @@
                 list: [],
                 text: '',
                 comment_n:0,
-                zan:0
+                zan:0,
+                maxItems:1000,
+                itemsPerLoad : 10,
+                lastIndex : 10
             }
         },
         methods: {
@@ -140,9 +147,7 @@
             },
             addItems:function(number, lastIndex){
                 let vm = this;
-
                 request.get('/?c=index&a=comment&id=' + vm.$route.params.id + '&offset=' + lastIndex + '&size=' + number + '&random=' + Math.random()).end(function (err, res) {
-
                     if (err || !res.ok) {
                         alert('error');
                     } else {
@@ -186,10 +191,11 @@
                                         alert(result.msg);
                                     } else {
                                         $.showPreloader('评论成功!');
+                                        vm.comment_n++;
                                         vm.list = [];
                                         vm.text = '';
-                                        vm.comment_n++;
-                                        vm.addItems(10,0);
+                                        vm.lastIndex = 10;
+                                        vm.addItems(vm.itemsPerLoad, 0);
                                         setTimeout(function () {
                                             $.hidePreloader();
                                         }, 500);
@@ -201,18 +207,7 @@
         },
         ready(){
             let vm = this;
-            // 最多可加载的条目
-            let maxItems = 1000;
-            // 每次加载添加多少条目
-            let itemsPerLoad = 10
-            // 上次加载的序号
-            let lastIndex = 10;
             $.init();
-            //预先加载条
-            vm.addItems(itemsPerLoad, 0);
-            console.log($.getScroller($('.infinite-scroll')))
-
-            // 注册'infinite'事件处理函数
             $('#content_comment').on('infinite', function () {
                 // 如果正在加载，则退出
                 if (vm.loading) return;
@@ -222,7 +217,7 @@
                 setTimeout(function () {
                     // 重置加载flag
                     vm.loading = false;
-                    if (lastIndex >= maxItems) {
+                    if (vm.lastIndex >= vm.maxItems) {
                         // 加载完毕，则注销无限加载事件，以防不必要的加载
                         $.detachInfiniteScroll($('.infinite-scroll'));
                         // 删除加载提示符
@@ -230,16 +225,15 @@
                         return;
                     }
                     // 添加新条目
-                    vm.addItems(itemsPerLoad, lastIndex);
+                    vm.addItems(vm.itemsPerLoad, vm.lastIndex);
                     // 更新最后加载的序号
                     //   alert($('.card').length)
-                    lastIndex = $('.list-container li').length + 10;
+                    vm.lastIndex = $('.list-container li').length + 10;
                     //  alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
                 }, 1000);
             });
-
 
         }
 

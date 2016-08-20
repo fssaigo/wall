@@ -22,11 +22,15 @@
         </div>
         <nav class="bar bar-tab">
             <table width="100%" height="100%" class="cy">
-                <tr>
+
+                <tr @click="canyu">
+
                     <td align="center">
-                        <a v-link="'cany1'">我要参与</a>
+                        <span >我要参与</span>
                     </td>
+
                 </tr>
+
             </table>
         </nav>
     </div>
@@ -65,6 +69,9 @@
                     i == index ? v.isFocus = true : v.isFocus = false;
                 });
                 this.$route.router.go(this.navigations[index].path)
+            },
+            canyu:function(){
+                this.$route.router.go('cany1')
             }
         }
     }

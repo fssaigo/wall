@@ -23,7 +23,7 @@
                     <div class="col-75">
                         <div id="input-file">
                             <span id="text">点击上传</span>
-                            <input type="file" multiple="multiple" class="width03" id="file">
+                            <input type="file"  class="width03" id="file">
                         </div>
                         <!--<input class="img-button" type="button" @click="choice" value="选择图片" >-->
                         <!--<input type="text">-->
@@ -85,9 +85,9 @@
         </div>
         <nav class="bar bar-tab">
             <table width="100%" height="100%" class="cy">
-                <tr>
+                <tr @click="submit">
                     <td align="center">
-                        <a @click="submit">提交作品</a>
+                        <span >提交作品</span>
                     </td>
                 </tr>
             </table>
@@ -103,21 +103,21 @@
         data(){
             return {
                 info: {
-                    name: null,
-                    mobile: null,
-                    zzcompany: null,
-                    address: null
+                    name: '',
+                    mobile: '',
+                    zzcompany: '',
+                    address: ''
                 },
                 detail: {
-                    title: null,
-                    description: null,
-                    yzcompany: null,
-                    adviser: null,
-                    design: null,
-                    construction: null,
-                    material: null,
-                    uid: null,
-                    photoIds: null
+                    title: '',
+                    description: '',
+                    yzcompany: '',
+                    adviser: '',
+                    design: '',
+                    construction: '',
+                    material: '',
+                    uid: '',
+                    photoIds: ''
                 }
 
             }
@@ -143,8 +143,14 @@
             $("#file").html5Uploader({
                 name: "photoFile",
                 postUrl: "/?c=upload&a=photo",
-
+                onServerError:function(){
+                    $.hidePreloader();
+                },
+                onServerLoadStart:function(){
+                    $.showPreloader('正在上传...');
+                },
                 onSuccess: function (e, file, dhtml) {
+                    $.hidePreloader();
                     var response = JSON.parse(dhtml);
                     if (response.status == 1) {
                         var ids = $("#photoIds").val();

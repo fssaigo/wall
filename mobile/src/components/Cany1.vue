@@ -41,9 +41,9 @@
         </div>
         <div class="bar bar-tab bg">
             <table width="100%" height="100%" class="next">
-                <tr>
+                <tr @click="next">
                     <td align="center">
-                        <a @click="next">下一步</a>
+                        <span >下一步</span>
                     </td>
                 </tr>
             </table>
@@ -82,10 +82,10 @@
         data(){
             return {
                 info:{
-                    name:null,
-                    mobile:null,
-                    zzcompany:null,
-                    address:null
+                    name:'',
+                    mobile:'',
+                    zzcompany:'',
+                    address:''
                 }
 
             }
@@ -93,11 +93,11 @@
         methods:{
             next:function(){
                 let vm = this;
-                if(!vm.info.name){
+                if(vm.info.name == ''){
                     alert('姓名不能为空');
                     return;
                 }
-                if(!vm.info.mobile){
+                if(vm.info.mobile == ''){
                     alert('电话不能为空');
                     return;
                 }
@@ -153,7 +153,7 @@
     textarea{
         height: 5rem;
     }
-    a{
+    span{
         color: #00ffcc;
     }
 
