@@ -135,27 +135,29 @@
         methods: {
             cancel: function () {
                 let vm = this;
-                vm.show = false;
+             //   vm.show = false;
                 vm.searchText = '';
-                vm.loading = false;
-                vm.list1 = [];
-                vm.list2 = [];
-                vm.lastIndex = 14;
-                vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
+             //   vm.loading = false;
+             //   vm.list1 = [];
+               // vm.list2 = [];
+                //vm.lastIndex = 14;
+               // vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
             },
             search: function (e) {
                 let vm = this;
-                vm.loading = false;
-                vm.list1 = [];
-                vm.list2 = [];
-                vm.lastIndex = 14;
-                vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
-                var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-                if (myreg.test(vm.searchText)) {
-                    vm.show = true;
-                } else {
-                    vm.show = false;
-                }
+                setTimeout(function () {
+                    vm.loading = false;
+                    vm.list1 = [];
+                    vm.list2 = [];
+                    vm.lastIndex = 14;
+                    vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
+                    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+                    if (myreg.test(vm.searchText)) {
+                        vm.show = true;
+                    } else {
+                        vm.show = false;
+                    }
+                },25)
             },
             zanT: function (id, num) {
                 let vm = this;
