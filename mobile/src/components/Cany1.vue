@@ -127,7 +127,7 @@
     textarea {  -webkit-appearance: none;}
 
     .bar-tab:before{
-        background-color:#00ffcc;
+        background-color:#fff;
     }
 
     .t-img{
@@ -138,7 +138,7 @@
     }
     p{
         font-size: 0.6rem;
-        color: #00ffcc;
+        color: #fff1b3;
         margin-top: 0;
     }
     h5{
@@ -149,7 +149,7 @@
         margin: 0.6rem 0;
     }
     .col-25{
-        color: #9eaab1;
+        color: #fff;
         line-height: 1.8rem;
         margin-left: 0;
         width:25%;
@@ -163,8 +163,9 @@
         font-size: 1rem;
     }
     input,textarea{
-        background: #203948;
-        border: 0.03rem #6a92a9 solid!important;
+        background: #963535;
+        /*border:none;*/
+        border: 1px #fff solid;
         height: 1.8rem;
         width:100%;
         color: #ffffff;
@@ -175,7 +176,7 @@
         height: 5rem;
     }
     span{
-        color: #00ffcc;
+        color: #fff;
     }
 
 </style>

@@ -5,7 +5,7 @@
             <div class="t-img">
                 <img src="../imgs/cany1.png">
             </div>
-            <p class="t-info">
+            <p class="t-info" style="color:#fff1b3">
                 个人信息只做为联络及存档，不会在任何页面显示，*为必填项
             </p>
 
@@ -54,19 +54,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-25 re-lineheight">顾问公司<br>/个人</div>
+                    <div class="col-25 re-lineheight">顾问公司<br>（个人）</div>
                     <div class="col-75">
                         <textarea v-model="detail.adviser" class="height01"></textarea>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-25 re-lineheight">幕墙设计<br>单位/个人</div>
+                    <div class="col-25 re-lineheight">幕墙设计<br>单位</div>
                     <div class="col-75">
                         <textarea v-model="detail.design" class="height01"></textarea>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-25 re-lineheight">幕墙施工<br>单位/个人</div>
+                    <div class="col-25 re-lineheight">幕墙施工<br>单位</div>
                     <div class="col-75">
                         <textarea v-model="detail.construction" class="height01"></textarea>
                     </div>
@@ -347,7 +347,7 @@
         width: 40%;
         height: 1.8rem;
         border: none;
-        background-color: #02f5c5;
+        background-color: #fff1b3;
 
         text-align: center;
         cursor: pointer;
@@ -389,7 +389,7 @@
 
     p {
         font-size: 0.6rem;
-        color: #00ffcc;
+        color: #fff;
         margin-top: 0;
     }
 
@@ -403,7 +403,7 @@
     }
 
     .col-25 {
-        color: #9eaab1;
+        color: #fff;
         line-height: 1.8rem;
         margin-left: 0;
         width: 25%;
@@ -421,8 +421,9 @@
 
     input, textarea {
         font-size: 0.7rem;
-        background: #203948;
-        border: 0.03rem #6a92a9 solid !important;
+        background: #963535;
+        /*border:none;*/
+        border: 1px #fff solid;
         height: 1.8rem;
         width: 100%;
         color: #ffffff;
@@ -449,19 +450,19 @@
     }
 
     ::-webkit-input-placeholder { /* WebKit browsers */
-        color: #3f7593;
+        color: #ca7878;
     }
 
     :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-        color: #3f7593;
+        color: #ca7878;
     }
 
     ::-moz-placeholder { /* Mozilla Firefox 19+ */
-        color: #3f7593;
+        color: #ca7878;
     }
 
     :-ms-input-placeholder { /* Internet Explorer 10+ */
-        color: #3f7593;
+        color: #ca7878;
     }
 
 </style>

@@ -3,40 +3,32 @@
         <ul>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/j1.jpg"></i>
+                    <i><img src="http://www.zhuanti2016.wangziqing.cc/static/wall/pc/imgs/lp_01.jpg"></i>
                 </div>
                 <div class="col-info">
-                    <div class="j-title">入围奖</div>
-                    <div>每一个通过审核并入围的项目，都将获得1张“寻找中国幕墙之最”活动官方颁发的荣誉证书，提交者同时影拓数位板1个</div>
+                    <!--<div class="j-title">入围奖</div>-->
+                    <div>所有提交的参评项目，活动结束后都将会通过主办方评审，最终通过评审并认定的项目，都将获得一张“寻找中国幕墙之最”活动官方颁发的徽章及证书，提交者获得纪念徽章和奖品</div>
                 </div>
             </li>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/j2.jpg"></i>
+                    <i><img src="http://www.zhuanti2016.wangziqing.cc/static/wall/pc/imgs/lp_02.jpg"></i>
                 </div>
                 <div class="col-info">
-                    <div class="j-title">最佳人气奖</div>
-                    <div>根据最终截止时的点赞数量，评选出“最佳人气奖”并颁发证书及奖品，奖品为：IPAD一台</div>
+                    <!--<div class="j-title">最佳人气奖</div>-->
+                    <div>参与项目互动评论，字数超过100字有价值的评论内容，经过组委会审核通过后获得纪念徽章及奖品</div>
                 </div>
             </li>
             <li class="row">
                 <div class="col-img">
-                    <i><img src="../imgs/j3.jpg"></i>
+                    <i><img src="http://www.zhuanti2016.wangziqing.cc/static/wall/pc/imgs/lp_03.jpg"></i>
                 </div>
                 <div class="col-info">
-                    <div class="j-title">最佳评论奖</div>
-                    <div>每周从评论者中抽取1-2条最佳评论，颁发“最佳评论员”奖，，奖品为：蓝牙音响一台</div>
+                    <!--<div class="j-title">最佳评论奖</div>-->
+                    <div>转发活动至朋友圈并截屏发给活动组，活动期间每个工作日抽取5名发放奖品，每周公布一次获奖名单</div>
                 </div>
             </li>
-            <li class="row" >
-                <div class="col-img">
-                    <i><img src="../imgs/j4.jpg"></i>
-                </div>
-                <div class="col-info">
-                    <div class="j-title">转发有奖</div>
-                    <div>转发活动至朋友圈并截屏发给活动组官方微信（扫码关注），活动结束时抽取10名（或每周抽取X名）发放奖品，奖品：智能手环</div>
-                </div>
-            </li>
+
         </ul>
     </div>
 </template>
@@ -46,12 +38,12 @@
         padding: 0 0 2rem 0;
         font-size: 0.6rem;
         margin-left: 0.9rem;
-        color: #74838d;
+        color: #fff;
         line-height: 0.8rem;
 
     }
     li{
-        border-bottom: 0.05rem dotted #6e7c84;
+        border-bottom: 0.05rem dotted #fff;
         padding: 0.5rem 0;
 
     }

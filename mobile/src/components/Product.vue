@@ -107,6 +107,7 @@
     }
     .buttons-tab .button.active{
         font-weight: bold;
+        border-bottom: 2px solid #fff;
     }
 
 

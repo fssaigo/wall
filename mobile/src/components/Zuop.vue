@@ -6,7 +6,8 @@
                 <div class="search-input re-input">
                     <label class="icon icon-search" for="search"></label>
                     <input type="search" id='search'
-                           v-model="searchText" placeholder='输入您的手机号检索您的作品' @blur="search" @keyup.esc="search" @keyup.enter="search"/>
+                           v-model="searchText" placeholder='输入关键词检索您的作品,手机号可进行修改' @blur="search" @keyup.esc="search"
+                           @keyup.enter="search"/>
                 </div>
             </div>
         </div>
@@ -23,7 +24,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-content-inner">
-                                    <p>{{item.title}}</p>
+                                    <p v-link="{ name: 'detail', params: { id: item.work_id }}">{{item.title}}</p>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -35,11 +36,13 @@
 
                                 </a>
 
-                                <a  v-link="{ name: 'detail', params: { id: item.work_id }}" class="link">
+                                <a v-link="{ name: 'detail', params: { id: item.work_id }}" class="link">
                                     <span class="iconfont">&#xe601;</span>
                                     评论 {{item.comment}}
                                 </a>
-                                <a v-if="show"  v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}" class="link">
+                                <a v-if="show"
+                                   v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}"
+                                   class="link">
                                     <span class="iconfont" style="font-size: 16px;">&#xe60b;</span>
 
                                 </a>
@@ -56,7 +59,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-content-inner">
-                                    <p>{{item.title}}</p>
+                                    <p v-link="{ name: 'detail', params: { id: item.work_id }}">{{item.title}}</p>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -70,7 +73,9 @@
                                     <span class="iconfont">&#xe601;</span>
                                     评论 {{item.comment}}
                                 </a>
-                                <a v-if="show" v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}" class="link">
+                                <a v-if="show"
+                                   v-link="{ name: 'cany1', params: { work_id: item.work_id ,uid : item.uid}}"
+                                   class="link">
                                     <span class="iconfont" style="font-size: 16px;">&#xe60b;</span>
 
                                 </a>
@@ -106,24 +111,24 @@
                 list2: [],
                 loading: false,
                 maxItems: 1000,
-                itemsPerLoad: 14,
-                lastIndex: 14,
+                itemsPerLoad: 10,
+                lastIndex: 10,
                 searchText: '',
                 show: false
             }
         },
         route: {
-            data ({ to }) {
+            data ({to}) {
                 let vm = this;
                 vm.loading = false;
                 vm.list1 = [];
                 vm.list2 = [];
-                vm.lastIndex = 14;
+                vm.lastIndex = 10;
 
 
                 vm.searchText = to.params.tel;
                 //预先加载条
-                vm.addItems(vm.itemsPerLoad, 0,vm.searchText);
+                vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
                 var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
                 if (myreg.test(vm.searchText)) {
                     vm.show = true;
@@ -135,13 +140,13 @@
         methods: {
             cancel: function () {
                 let vm = this;
-             //   vm.show = false;
+                //   vm.show = false;
                 vm.searchText = '';
-             //   vm.loading = false;
-             //   vm.list1 = [];
-               // vm.list2 = [];
+                //   vm.loading = false;
+                //   vm.list1 = [];
+                // vm.list2 = [];
                 //vm.lastIndex = 14;
-               // vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
+                // vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
             },
             search: function (e) {
                 let vm = this;
@@ -149,7 +154,7 @@
                     vm.loading = false;
                     vm.list1 = [];
                     vm.list2 = [];
-                    vm.lastIndex = 14;
+                    vm.lastIndex = 10;
                     vm.addItems(vm.itemsPerLoad, 0, vm.searchText);
                     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
                     if (myreg.test(vm.searchText)) {
@@ -157,43 +162,55 @@
                     } else {
                         vm.show = false;
                     }
-                },25)
+                }, 100)
             },
             zanT: function (id, num) {
                 let vm = this;
-                if (!localStorage.getItem("selfNum_" + id)) {
-                    localStorage.setItem("selfNum_" + id, 0);
-                }
-                if (localStorage.getItem("selfNum_" + id) <= 0) {
-                    localStorage.setItem("selfNum_" + id, ++num);
 
-                    request.get('/?c=ajax&a=vote&id=' + id + '&random=' + Math.random()).end(function (err, res) {
-                        if (err || !res.ok) {
-                            $.alert('error');
+                request.get('/?c=ajax&a=vote&id=' + id + '&random=' + Math.random()).end(function (err, res) {
+                    if (err || !res.ok) {
+                        $.alert('error');
+                    } else {
+                        var result = JSON.parse(res.text);
+                        if (result.status == 1) {
+                            vm.list1.map(function (v, index) {
+                                if (v.work_id == id) {
+                                    v.zan++;
+                                    return;
+                                }
+                            });
+                            vm.list2.map(function (v, index) {
+                                if (v.work_id == id) {
+                                    v.zan++;
+                                    return;
+                                }
+                            });
+                            $.modal({
+                                title: '点赞成功',
+                                afterText: '<div class="swiper-container" style="width: auto; margin:5px -15px -15px">' +
+                                '<div class="swiper-pagination"></div>' +
+                                '<div class="swiper-wrapper">' +
+                                '<div class="swiper-slide"><img src="http://www.zhuanti2016.wangziqing.cc/xiugai/code.jpg" height="150" style="display:block;margin-left: auto;margin-right: auto;">' +
+                                '<div style="text-align: center"><p style="margin-left:10px;margin-right:10px;font-size:12px;">感谢您的参与，扫描二维码（或长按进行识别），关注活动微信公众号，更多惊喜等着您</p>' +
+                                '<p style="margin-left:10px;margin-right:10px;font-size:12px;color:red;">转发活动并截屏发送到微信公众号，还可参与抽奖</p></div></div>' +
+                                '</div>' +
+                                '</div>',
+                                buttons: [
+                                    {
+                                        text: '关闭',
+                                        onClick: function () {
+                                            $.closeModal(this)
+                                        }
+                                    }
+                                ]
+                            })
+
                         } else {
-                            var result = JSON.parse(res.text);
-                            if (result.status == 1) {
-                                vm.list1.map(function (v, index) {
-                                    if (v.work_id == id) {
-                                        v.zan++;
-                                        return;
-                                    }
-                                });
-                                vm.list2.map(function (v, index) {
-                                    if (v.work_id == id) {
-                                        v.zan++;
-                                        return;
-                                    }
-                                });
-
-                            } else {
-                                $.alert(result.msg);
-                            }
+                            $.alert(" 您已经点过赞了，2小时之内只能点一次哦");
                         }
-                    });
-                } else {
-                    $.alert("你已经赞过了");
-                }
+                    }
+                });
+
 
             },
             addItems: function (number, lastIndex, keyword) {
@@ -249,10 +266,10 @@
                         return;
                     }
                     // 添加新条目
-                    vm.addItems(vm.itemsPerLoad, vm.lastIndex,vm.searchText);
+                    vm.addItems(vm.itemsPerLoad, vm.lastIndex, vm.searchText);
                     // 更新最后加载的序号
                     //   $.alert($('.card').length)
-                    vm.lastIndex = $('.cd').length + 14;
+                    vm.lastIndex = $('.cd').length + 10;
                     //  $.alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
@@ -323,12 +340,12 @@
     .re-input {
         border-radius: 1rem;
         overflow: hidden;
-        border: 0.05rem solid #00ffcc;
+        border: 0.05rem solid #fff;
     }
 
     .re-input input {
-        background-color: #244151;
-        color: #307266;
+        background-color: #963535;
+        color: #fff;
     }
 
     .bar:after {

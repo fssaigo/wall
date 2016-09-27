@@ -10,6 +10,20 @@ function zanTa(e, id, num) {
     }
     if (localStorage.getItem("selfNum_" + id) <= 0) {
         localStorage.setItem("selfNum_" + id, ++num);
+
+        layer.alert('<div  style="width: auto; margin:5px -15px -15px">'+
+            '<div ></div>'+
+            '<div >'+
+            '<div ><img src="http://www.zhuanti2016.wangziqing.cc/xiugai/code.jpg" height="150" style="display:block;margin-left: auto;margin-right: auto;">' +
+            '<div style="text-align: center"><p style="margin-left:10px;margin-right:10px;font-size:12px;">感谢您的参与，扫描二维码（或长按进行识别），关注活动微信公众号，更多惊喜等着您</p>'+
+            '<p style="margin-left:10px;margin-right:10px;font-size:12px;color:red;">转发活动并截屏发送到微信公众号，还可参与抽奖</p></div></div>'+
+            '</div>'+
+            '</div>', {
+            skin: 'layui-layer-lan',
+            title:'点赞成功'
+            ,closeBtn: 0
+            ,shift: 0 //动画类型
+        });
     } else {
         alert("你已经赞过了");
     }
