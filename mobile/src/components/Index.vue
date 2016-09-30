@@ -4,17 +4,17 @@
             <div class="row">
                 <div class="col-40"><img src="../imgs/jz.jpg" align="absmiddle"></div>
                 <div class="col-60 title-info">
-                    <p style="margin-top:2px;color:#e6df6c"><b>主办单位：</b></p>
+                    <p style="margin-top:2px;color:#e6df6c"><b>主办单位</b></p>
                     <p>《幕墙设计》杂志、幕墙工程网</p>
-                    <p style="padding-top:5px;color:#e6df6c"><b>独家冠名：</b> </p>
+                    <p style="padding-top:5px;color:#e6df6c"><b>独家冠名</b> </p>
                     <p>广州市白云化工实业有限公司</p>
-                    <p style="padding-top:5px;color:#e6df6c"><b>协办单位：</b></p>
+                    <p style="padding-top:5px;color:#e6df6c"><b>协办单位</b></p>
                     <p>沈阳远大铝业工程有限公司</p>
                     <p>江河创建集团股份有限公司</p>
                     <p>深圳市方大建科集团有限公司</p>
                     <p>中建三局装饰有限公司</p>
                     <p>珠海兴业绿色建筑科技有限公司</p>
-                    <p style="padding-top:5px;color:#e6df6c"><b>合作媒体：</b></p>
+                    <p style="padding-top:5px;color:#e6df6c"><b>合作媒体</b></p>
                     <p>中国幕墙网、联合幕墙网</p>
                     <p>《中国建筑金属结构》、窗博城</p>
                 </div>

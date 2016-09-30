@@ -60,9 +60,9 @@
             return {
                 navigations: [
                     {path: '/index', text: '活动说明', isFocus: false,append: false},
-                    {path: '/jl', text: '奖项设置', isFocus: false,append: false},
                     {path: '/rule', text: '活动规则', isFocus: false,append: false},
-                    {path: '/zuop', text: '作品展示', isFocus: false,append: false},
+                    {path: '/zuop', text: '参评项目', isFocus: false,append: false},
+                    {path: '/jl', text: '奖项设置', isFocus: false,append: false},
                 ]
             }
         },

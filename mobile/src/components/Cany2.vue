@@ -5,17 +5,16 @@
             <div class="t-img">
                 <img src="../imgs/cany1.png">
             </div>
-            <p class="t-info" style="color:#fff1b3">
-                个人信息只做为联络及存档，不会在任何页面显示，*为必填项
-            </p>
-
-            <h5>作品信息</h5>
+            <!--<p class="t-info" style="color:#fff1b3">-->
+            <!--个人信息只做为联络及存档，不会在任何页面显示，*为必填项-->
+            <!--</p>-->
+            <h5>参评项目信息</h5>
             <form>
                 <div class="row">
                     <div class="col-25">标题<i>*</i></div>
                     <div class="col-75">
                         <textarea v-model="detail.title" class="height01"
-                                  placeholder="标题请直接突出该项目的“之最”特征，如：全球最大单体陶板幕墙—XXX项目"></textarea>
+                                  placeholder="能够直接突出该项目“之最”特征，尤其是可以量化的指标"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -44,7 +43,7 @@
                     <div class="col-25">项目介绍<i>*</i></div>
                     <div class="col-75">
                         <textarea v-model="detail.description"
-                                  placeholder="对项目整体的文字介绍，包含但不限于项目名称、项目地点、项目简介、设计理念、难点亮点、技术参数（能够量化的体现“之最”的数据或信息）"></textarea>
+                                  placeholder="对项目整体的文字介绍，包含但不限于项目名称，项目地点，项目简介、设计理念、难点亮点、技术参数（能够量化体现“幕墙之最”的数据及相关信息）。"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -60,15 +59,27 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-25 re-lineheight">幕墙设计<br>单位</div>
+                    <div class="col-25 re-lineheight">幕墙设计<br>单&#12288;&#12288;位</div>
                     <div class="col-75">
                         <textarea v-model="detail.design" class="height01"></textarea>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-25 re-lineheight">幕墙施工<br>单位</div>
+                    <div class="col-25 re-lineheight">幕&#12288;&#12288;墙<br>&nbsp;设计师</div>
+                    <div class="col-75">
+                        <textarea v-model="detail.design_man" class="height01"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25 re-lineheight">幕墙施工<br>单&#12288;&#12288;位</div>
                     <div class="col-75">
                         <textarea v-model="detail.construction" class="height01"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">项目经理</div>
+                    <div class="col-75">
+                        <textarea v-model="detail.construction_man" class="height01"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -114,7 +125,9 @@
                     yzcompany: '',
                     adviser: '',
                     design: '',
+                    design_man: '',
                     construction: '',
+                    construction_man: '',
                     material: '',
                     uid: '',
                     photoIds: '',
@@ -136,7 +149,9 @@
                     yzcompany: '',
                     adviser: '',
                     design: '',
+                    design_man: '',
                     construction: '',
+                    construction_man: '',
                     material: '',
                     uid: '',
                     photoIds: '',
@@ -165,8 +180,10 @@
                                         vm.detail.description = r.description;
                                         vm.detail.adviser = r.adviser;
                                         vm.detail.design = r.design;
+                                        vm.detail.design_man = r.design_man;
                                         vm.detail.material = r.material;
                                         vm.detail.construction = r.construction;
+                                        vm.detail.construction_man = r.construction_man;
 
                                         setTimeout(function () {
                                             result.ablum.map(function (v, i) {

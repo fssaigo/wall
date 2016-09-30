@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-info">
                     <!--<div class="j-title">入围奖</div>-->
-                    <div>所有提交的参评项目，活动结束后都将会通过主办方评审，最终通过评审并认定的项目，都将获得一张“寻找中国幕墙之最”活动官方颁发的徽章及证书，提交者获得纪念徽章和奖品</div>
+                    <div>所有提交的参评项目，活动结束后都将会通过主办方评审，最终通过评审并认定的项目，都将获得一张“寻找中国幕墙之最”活动官方颁发的徽章及证书，提交者获得纪念徽章和奖品。</div>
                 </div>
             </li>
             <li class="row">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-info">
                     <!--<div class="j-title">最佳人气奖</div>-->
-                    <div>参与项目互动评论，字数超过100字有价值的评论内容，经过组委会审核通过后获得纪念徽章及奖品</div>
+                    <div>参与项目互动评论，字数超过100字有价值的评论内容，经过组委会审核通过后获得纪念徽章及奖品。</div>
                 </div>
             </li>
             <li class="row">
@@ -30,6 +30,18 @@
             </li>
 
         </ul>
+        <div class="line"></div>
+        <h3>关于活动中的任何问题，欢迎您与我们联系</h3>
+        <div class="foot">
+            <p>2016寻找中国幕墙之最·活动组委会</p>
+            <p>电话：010-83531521</p>
+            <p>邮箱：muqiangsheji@yeah.net</p>
+            <p>微信公众号：muqiangzhoukan</p>
+            <div>
+                <span>官方活动二维码</span>
+                <p><img src="http://www.zhuanti2016.wangziqing.cc/xiugai/code.jpg" align="absmiddle"></p>
+            </div>
+        </div>
     </div>
 </template>
 <style lang="less" scoped>

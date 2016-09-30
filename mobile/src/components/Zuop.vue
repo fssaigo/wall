@@ -6,7 +6,7 @@
                 <div class="search-input re-input">
                     <label class="icon icon-search" for="search"></label>
                     <input type="search" id='search'
-                           v-model="searchText" placeholder='输入关键词检索您的作品,手机号可进行修改' @blur="search" @keyup.esc="search"
+                           v-model="searchText" placeholder='输入关键词检索参评项目,手机号可进行修改' @blur="search" @keyup.esc="search"
                            @keyup.enter="search"/>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-content-inner">
-                                    <p v-link="{ name: 'detail', params: { id: item.work_id }}">{{item.title}}</p>
+                                    <p v-link="{ name: 'detail', params: { id: item.work_id }}">NO.{{item.work_id}} {{item.title}}</p>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-content-inner">
-                                    <p v-link="{ name: 'detail', params: { id: item.work_id }}">{{item.title}}</p>
+                                    <p v-link="{ name: 'detail', params: { id: item.work_id }}">NO.{{item.work_id}} {{item.title}}</p>
                                 </div>
                             </div>
                             <div class="card-footer">

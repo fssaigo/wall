@@ -7,23 +7,25 @@
                     <!--<div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>-->
                     <!--<div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i4/TB10rkPGVXXXXXGapXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>-->
                     <!--<div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1kQI3HpXXXXbSXFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>-->
-
                     <div class="swiper-slide" v-for="item in ablum"><img src={{item.src}} alt=""></div>
-
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
 
-
             <div class="zp-info">
-                <div class="zp-title">{{title}}</div>
+                <div class="zp-title">NO.{{work_id}} {{title}}</div>
                 <div class="zp-description">
                     {{description}}
                 </div>
+                <div class="zp-item-sn"><b>幕墙设计</b>：{{design}}</div>
+                <div class="zp-item-sn pm1"><b>设计师</b>：{{design_man}}</div>
+                <div class="zp-item-sn"><b>幕墙施工</b>：{{construction}}</div>
+                <div class="zp-item-sn"><b>项目经理</b>：{{construction_man}}</div>
             </div>
             <div class="zp-stat">
                 <a href="javascript:void(0)">
-                    <span class="iconfont">&#xe601;</span>
-                    评 {{comment_n}}
+                    <span class="iconfont">&#xe601;评</span>
+                     {{comment_n}}
                 </a>
                 <a href="javascript:void(0)">
                     <a @click="zanT(zan)" href="javascript:void(0)">
@@ -68,6 +70,18 @@
 
             </div>
         </div>
+        <div class="line"></div>
+        <h3>关于活动中的任何问题，欢迎您与我们联系</h3>
+        <div class="foot">
+            <p>2016寻找中国幕墙之最·活动组委会</p>
+            <p>电话：010-83531521</p>
+            <p>邮箱：muqiangsheji@yeah.net</p>
+            <p>微信公众号：muqiangzhoukan</p>
+            <div>
+                <span>官方活动二维码</span>
+                <p><img src="http://www.zhuanti2016.wangziqing.cc/xiugai/code.jpg" align="absmiddle"></p>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -84,7 +98,12 @@
                             var result = JSON.parse(res.text);
                             if (result.status == 1) {
                                 if (result.data) {
+                                    vm.work_id = result.data.work_id;
                                     vm.title = result.data.title;
+                                    vm.design = result.data.design;
+                                    vm.design_man = result.data.design_man;
+                                    vm.construction = result.data.construction;
+                                    vm.construction_man = result.data.construction_man;
                                     vm.description = result.data.description;
                                     vm.ablum = result.ablum;
                                     vm.comment_n = result.data.comment;
@@ -107,7 +126,12 @@
         },
         data(){
             return {
+                work_id: '',
                 title: '',
+                design: '',
+                design_man: '',
+                construction: '',
+                construction_man: '',
                 description: '',
                 ablum: [],
                 loading: false,
@@ -287,6 +311,7 @@
 
     .swiper-container {
         padding-bottom: 0;
+        border-bottom:2px solid #efefef
     }
 
     .swiper-slide {
@@ -298,8 +323,8 @@
     .swiper-slide img {
         margin-left: auto;
         margin-right: auto;
-        width: 100%;
         height: 320px;
+        max-width:100%;
     }
 
     p {
@@ -387,18 +412,6 @@
         margin-top: 10px;
     }
 
-    .zp-msg input {
-        background: none;
-        border: 0.03rem solid #fff1b3 !important;
-        font-size: 0.6rem;
-        color: white;
-        /*line-height: 0.8rem;*/
-        /*height: 3.2rem;*/
-        resize: none;
-        padding: 0.4rem;
-        border-radius: 0;
-    }
-
     .zp-msg button {
         background: #fff1b3;
         color: black;
@@ -432,16 +445,25 @@
     }
 
     .zp-title {
-        color: #fefefe;
+        color: #e6df6c;
+        font-weight:bold;
         font-size: 0.9rem;
         margin-bottom: 0.3rem;
         margin-top: 0.6rem;
     }
-
+    .pm1 {
+        padding-left:1em;
+    }
+    .zp-item-sn {
+        color: #fefefe;
+        font-size:0.7rem;
+    }
     .zp-description {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         color: #fff;
-        line-height: 0.8rem;
+        line-height: 1rem;
+        text-indent: 2em;
+        margin-bottom: 0.6rem;
     }
 
     ::-webkit-input-placeholder { /* WebKit browsers */
