@@ -71,8 +71,7 @@ router.map({
             '/zuop/:tel':{
                 name:'zuop',
                 component:Zuop
-            },
-
+            }
         }
     },
     '/cany1':{

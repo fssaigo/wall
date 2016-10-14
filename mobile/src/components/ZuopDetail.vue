@@ -1,7 +1,13 @@
 <template>
     <div class="page" id="page_detail">
         <div class="content bg" id="content_comment">
-
+            <div id="head">
+                <img src="../imgs/m-banner.jpg" align="absmiddle">
+            </div>
+            <div class="buttons-tab bor-style">
+                <a v-for='item in navigations' v-text="item.text"  @click="choice($index)"
+                   class="tab-link button" :class="{active:item.isFocus}" ></a>
+            </div>
             <div class="swiper-container" data-space-between='10'>
                 <div class="swiper-wrapper">
                     <!--<div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>-->
@@ -142,10 +148,23 @@
                 mobile: '',
                 maxItems: 1000,
                 itemsPerLoad: 14,
-                lastIndex: 14
+                lastIndex: 14,
+                navigations: [
+                    {path: '/index', text: '活动说明', isFocus: false,append: false},
+                    {path: '/rule', text: '活动规则', isFocus: false,append: false},
+                    {path: '/zuop', text: '参评项目', isFocus: false,append: false},
+                    {path: '/jl', text: '奖项设置', isFocus: false,append: false},
+                ]
             }
         },
         methods: {
+            choice: function (index) {
+                this.navigations.map(function (v, i) {
+                    i == index ? v.isFocus = true : v.isFocus = false;
+                });
+                this.$route.router.go(this.navigations[index].path)
+            },
+
             zanT: function (num) {
                 let vm = this;
                 var id = vm.$route.params.id;
@@ -189,7 +208,6 @@
                 });
             },
 
-
             addItems: function (number, lastIndex) {
                 let vm = this;
                 request.get('/?c=index&a=comment&id=' + vm.$route.params.id + '&offset=' + lastIndex + '&size=' + number + '&random=' + Math.random()).end(function (err, res) {
@@ -207,8 +225,6 @@
                             } else {
                                 vm.loading = false;
                             }
-                        } else {
-                            $.alert(result.msg);
                         }
                     }
 
@@ -283,7 +299,7 @@
                     //  $.alert(lastIndex)
                     //容器发生改变,如果是js滚动，需要刷新滚动
                     $.refreshScroller();
-                }, 1000);
+                }, 100);
             });
 
         }
@@ -293,6 +309,22 @@
 </script>
 
 <style lang="less" scoped>
+    #head img {
+        width: 100%;
+    }
+    .bor-style{
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+    }
+    .buttons-tab .button.active{
+        font-weight: bold;
+        border-bottom: 2px solid #fff;
+    }
+    .tabs{
+        padding-bottom: 3rem;
+    }
+
+
     input {
         -webkit-appearance: none; /*去除系统默认的样式*/
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* 点击高亮的颜色*/

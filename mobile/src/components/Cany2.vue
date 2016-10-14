@@ -83,6 +83,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-25">项目总工</div>
+                    <div class="col-75">
+                        <textarea v-model="detail.project_man" class="height01"></textarea>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-25 re-lineheight">用材品牌</div>
                     <div class="col-75">
                         <input v-model="detail.material" type="text" placeholder="玻璃、板材、胶、五金件等">
@@ -128,6 +134,7 @@
                     design_man: '',
                     construction: '',
                     construction_man: '',
+                    project_man: '',
                     material: '',
                     uid: '',
                     photoIds: '',
@@ -152,6 +159,7 @@
                     design_man: '',
                     construction: '',
                     construction_man: '',
+                    project_man: '',
                     material: '',
                     uid: '',
                     photoIds: '',
@@ -184,6 +192,7 @@
                                         vm.detail.material = r.material;
                                         vm.detail.construction = r.construction;
                                         vm.detail.construction_man = r.construction_man;
+                                        vm.detail.project_man = r.project_man;
 
                                         setTimeout(function () {
                                             result.ablum.map(function (v, i) {
