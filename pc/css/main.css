@@ -1,0 +1,129 @@
+.index{
+    background-image: url("../imgs/banner_01.jpg");
+    height: 490px;
+
+    min-width: 1024px;
+    /* 背景图垂直、水平均居中*/
+    background-position: top center;
+
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+
+    /* 让背景图基于容器大小伸缩
+    background-size: cover;*/
+}
+
+.sub{
+    background-image: url("../imgs/banner_02.jpg");
+    height: 300px;
+
+    min-width: 1024px;
+    /* 背景图垂直、水平均居中*/
+    background-position: top center;
+
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+
+    /* 让背景图基于容器大小伸缩
+    background-size: cover;*/
+    color: #0fc;
+    text-align: center;
+}
+.sub .sub-time{
+    font-size: 16px;
+    line-height: 40px;
+    padding-top: 60px;
+}
+
+.sub .sub-title{
+    font-size: 60px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+.sub .sub-info{
+    line-height: 20px;
+    font-size: 14px;
+}
+
+html, body {
+    height: 100%;
+    background-color: #0e2532;
+    margin: 0px;
+    position: relative;
+}
+
+.navigation{
+    height: 55px;
+    background-color: #00ffcc;
+}
+.container {
+    width: 1024px;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.navigation .middle {
+    width: 824px;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    line-height: 55px;
+}
+
+
+.navigation .middle a:hover{
+    background: #0e2532;
+    border-radius: 25px;
+    color: #00ffcc;
+    padding: 10px 25px;
+}
+
+.navigation .middle .on{
+    background: #0e2532;
+    border-radius: 25px;
+    color: #00ffcc;
+    padding: 10px 25px;
+}
+
+.navigation .li {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+footer {
+    margin-top: 30px;
+    color: white;
+    height: 180px;
+    width: 1024px;
+    float: left;
+    background: url("../imgs/ewm.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+.border {
+    height: auto;
+    border-top: 2px solid #00ffcc;
+    margin-top: 20px;
+    background-color:#193342;
+}
+
+.pagination{
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 50px;
+}

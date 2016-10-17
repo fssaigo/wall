@@ -1,0 +1,133 @@
+
+
+
+
+.search {
+    height: 125px;
+    width: 100%;
+    /*background-color: yellow;*/
+    display: inline-block;
+
+}
+
+.search .item {
+    height: 40px;
+    margin-top: 40px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 2px solid #00ffcc;
+    -moz-border-radius: 26px;
+    -webkit-border-radius: 26px;
+    border-radius: 26px;
+    width: 50%;
+    text-align: center;
+}
+
+.search .item input {
+    outline: none;
+    width: 90%;
+    margin-top: 4px;
+    border: none;
+    background-color: transparent;
+    height: 32px;
+    vertical-align: middle;
+    font-size: 18px;
+    color: white;
+
+}
+
+.search .item input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #2f6a66;
+}
+
+.search .item input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #2f6a66;
+}
+
+.search .item input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #2f6a66;
+}
+
+.search .item input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #2f6a66;
+}
+
+
+
+.list {
+    position: relative;
+    overflow: hidden;
+    margin-left: 14px;
+}
+
+.list .obj {
+    height: auto;
+    /*256*/
+    width: 236px;
+    float: left;;
+    /*margin: 5px 10px 5px 0px;*/
+    margin-left: 10px;
+    margin-top: 10px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #0b2534;
+
+
+
+}
+
+
+.list .obj a.obj-img{
+    display: block;
+    height: 236px;
+    width: 236px;
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+}
+
+.list .obj a:hover.obj-img{
+    height: 226px;
+    width: 226px;
+    margin: 5px;;
+    /* 让背景图基于容器大小伸缩 */
+    background-size: contain;
+}
+
+.list .obj .obj-title{
+    height: 35px;
+    width: 236px;
+    background: #fff;
+    border-bottom: solid 1px #dbdbdb;
+}
+
+.list .obj .obj-title a:hover{
+    text-decoration: underline;
+    color: #0d344a;
+}
+
+.list .obj .obj-title a{
+    color: #333;
+    line-height: 35px;
+    padding-left: 8px;
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.list .obj .handle{
+    height: 35px;
+    width: 236px;
+    background: #fff;
+    padding-left: 8px;
+    line-height: 35px;
+    font-size: 14px;
+}
+

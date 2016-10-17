@@ -1,0 +1,254 @@
+
+.banner {
+    width: 1024px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.banner-left {
+    position: relative;
+}
+
+.banner-left img {
+    float: left;
+    margin-top: 50px;
+    left: 0;
+}
+
+.banner-right {
+    float: right;
+    text-align: end;
+}
+
+.banner-right div {
+    position: relative;
+    text-align: end;
+    position: absolute;
+    bottom: 22%;
+    right: 0;
+    line-height: 14px;
+}
+
+#zi {
+    position: absolute;
+    z-index: 99;
+    margin-top: -50px;
+}
+
+.curtain-left {
+    height: 520px;
+    background-color: white;
+}
+
+.curtain-right {
+    height: 520px;
+    background-color: white;
+
+}
+
+.curtain-right p {
+    padding-top: 26px;
+    padding-left: 14px;
+    padding-right: 14px;
+    text-indent: 2em;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.curtain-right .super-p {
+    font-size: 20px;
+    color: #05a58a;
+    margin-top: -12px;
+}
+
+.curtain-right span {
+    color: #05a58a;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.item {
+    margin-top: 40px;
+}
+
+.item .zuop-text {
+    color: #0fc;
+    display: block;
+    padding-top: 18px;
+}
+
+.item .more {
+    color: #0fc;
+    display: block;
+    float: right;
+    padding-top: 18px;
+}
+
+ol {
+    margin-top: 20px;
+    margin-left: -16px;
+    list-style-type: decimal-leading-zero;
+}
+
+ol li {
+    text-indent: 4px;
+    letter-spacing: -0px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    color: white;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.item .row {
+    margin-top: 10px;
+}
+
+.item p {
+    color: #b2c2cc;
+    margin-left: 20px;
+    margin-top: -12px;
+    line-height: 18px;
+}
+
+.item h3 {
+    color: white;
+    margin-left: 20px;
+    margin-top: 26px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.banner p {
+    color: #00ffcc;
+}
+
+.jiang-head img {
+    border-radius: 50%;
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+footer {
+    margin-top: 30px;
+    color: white;
+    height: 180px;
+    float: left;
+}
+
+.list {
+    margin-top: 20px;
+    position: relative;
+    max-height: 520px;
+    overflow: hidden;
+}
+
+.list .obj {
+    height: 250px;
+    /*256*/
+    width: 250px;
+    float: left;;
+    margin: 5px 8px 5px 0px;
+    position: relative;
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+
+}
+.list :last-child{
+    margin-right: 0px;
+
+}
+
+.list .obj .handle {
+    height: 40px;
+    text-align: end;
+    padding-top: 10px;
+    padding-right: 12px;
+    position: absolute;
+    background-image: url("../imgs/img-bg.png");
+    background-repeat: repeat-x;
+    width: 236px;
+    background-position: bottom;
+}
+
+.list .obj .handle a {
+    text-decoration: none;
+    color: white;
+}
+.list .obj img{
+    width: 250px;
+    height: 250px;
+}
+.list .obj .description {
+    text-align: start;
+    background-color: #08e2b7;
+    position: absolute;
+    bottom: 0;
+    height: 110px;
+    width: 100%;
+    opacity: 0.0;
+    transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    /* Firefox 4 */
+    -webkit-transition: opacity 0.5s; /* Safari 和 Chrome */
+    /*-webkit-transition: height 2s;*/
+    -o-transition: opacity 0.5s; /* Opera */
+
+}
+
+.list .clean-right {
+    margin-right: 0px;
+}
+
+.list .image-link {
+    display: block;
+}
+
+.list .obj:hover .description {
+    opacity: 0.9;
+    color: white;
+}
+
+/*.list .obj div:hover{*/
+/*opacity:1;*/
+/*}*/
+.list .obj div h4 {
+    margin-left: 10px;
+    color: #0e2532;
+    margin-top: 15px;
+}
+
+.list .obj div p {
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: #0e2532;
+}
+
+.pure-u-1-1 {
+    color: #00ffcc;
+    font-size: 14px;
+}
+
+.pure-u-1-1 a {
+    color: #00ffcc;
+    display: block;
+    float: right;
+}

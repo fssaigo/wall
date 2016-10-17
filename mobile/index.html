@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>wall-mobile</title>
+    <script type="text/javascript">
+        if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+            if(window.location.href.indexOf("?mobile")<0){
+               // window.location.href="http://www.zhuanti2016.wangziqing.cc/?c=mobile&a=index";
+                /*
+                 try{
+                 if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+                 alert(1);
+                 window.location.href="http://shipei.qq.com/index.htm";
+                 }else if(/iPad/i.test(navigator.userAgent)){
+                 alert(2);
+                 }else{
+                 alert(3);
+                 window.location.href="http://shipei.qq.com/simple/s/index/"
+                 }
+                 }catch(e){}
+                 */
+            } else{
+                // window.location.href="http://shipei.qq.com/simple/s/index/"
+            }
+        } else{
+            window.location.href="http://www.zhuanti2016.wangziqing.cc/?c=index&a=index";
+        }
+
+    </script>
+
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">-->
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <!--<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">-->
+
+</head>
+<body>
+<div id="app">
+    <router-view keep-alive></router-view>
+</div>
+<!--<script type="application/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>-->
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+
+<script type="application/javascript" src="static/jquery.html5uploader.min.js"></script>
+<script type="text/javascript">
+    //SUI初始化
+    $.config = {
+        autoInit: true,
+        router: false
+    }
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+
+
+
+</script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="static/build.js"></script>
+</body>
+</html>

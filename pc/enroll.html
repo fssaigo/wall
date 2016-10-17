@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>wall</title>
+    <link rel="stylesheet" href="css/pure-gmb.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/enroll.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <script type="application/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+    <script type="application/javascript" src="js/jquery.html5uploader.min.js"></script>
+</head>
+
+<body>
+
+<header class="sub">
+    <div class="sub-time">2016·8月20日至9月20日</div>
+    <div class="sub-title">寻找中国幕墙之最</div>
+    <div class="sub-info">主办单位：《幕墙设计》杂志、幕墙工程网<br>
+        独家冠名：广州市白云化工实业有限公司<br>
+        协办单位：白云化工实业有限公司<br>
+        合作媒体：重庆日报 重庆晨报
+    </div>
+</header>
+
+<div class="pure-g navigation">
+    <div class="middle">
+        <div class="pure-g li">
+            <div class="pure-u-1-3">
+                <a href="index.html">
+                    <span style="padding: 0px 20px;">首页</span>
+                </a>
+            </div>
+            <div class="pure-u-1-3">
+                <a href="zuop.html">
+                    作品展示
+                </a>
+            </div>
+            <div class="pure-u-1-3">
+                <a href="enroll.html" class="on" style="text-align: left;">
+                    <span style="">我要参与</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container border">
+    <div class="t-item">
+        <div class="pure-g">
+            <div class="pure-u-3-5">
+                <img src="imgs/csxz.png" class="title-img">
+            </div>
+            <div class="pure-u-2-5">
+                <div class="search">
+                    <div class="item">
+                        <div class="pure-g">
+                            <div class="pure-u-4-5">
+                                <input type="text" maxlength="45" placeholder="输入身份证号检索您的作品并进行修改">
+                            </div>
+                            <div class="pure-u-1-5" style="margin-top: 4px;margin-left:-18px;text-align: end;">
+                                <a href="#">
+                                    <i class="iconfont" style="font-size: 32px;color: #00ffcc;">&#xe600;</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ol>
+        <li>个人和企业均可报名参加活动</li>
+        <li>国内及国外项目均可提交</li>
+        <li>提交的项目必须有量化的数据能够证明“之最”，如高度、体量、时间等</li>
+        <li>提交作品数量不限，但必须保证内容真实有效，项目真实存在（在建或已建成），一旦发现虚假内容，将取消评审资格</li>
+        <li>所有提交的作品，经过审核后予以发布，最终解释权归活动组委会所有</li>
+        <li>作品需单独提交，每个作品提交一次</li>
+        <li>如需修改作品，请在右侧输入您的身份证号进行检索，修改后仍需经过审核，请您耐心等待</li>
+    </ol>
+
+    <div class="t-item" style="margin-top: 60px;">
+        <div class="pure-g">
+            <div class="pure-u-1-5">
+                <img src="imgs/bmxx.png" class="title-img">
+            </div>
+            <div class="pure-u-3-5">
+                <span class="zuop-text">个人信息只做为联络及存档，不会在任何页面显示，*为必填项</span>
+
+            </div>
+        </div>
+    </div>
+    <form action="index.html" method="post">
+        <p>个人信息</p>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">姓名<i>*</i></div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width01">
+            </div>
+            <div class="pure-u-2-24">手机号<i>*</i></div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width01">
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">公司</div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width02">
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">地址</div>
+            <div class="pure-u-22-24">
+                <input type="text" class="width02">
+            </div>
+        </div>
+        <p>作品信息</p>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">标题<i>*</i></div>
+            <div class="pure-u-22-24">
+                <input type="text" class="width02">
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">上传图片<i>*</i></div>
+            <div class="pure-u-3-24">
+                <input type="file"  multiple="multiple" class="width03" id="multiple">
+                <input class="img-button" type="button" onclick="$('#multiple').click()"  value="选择图片" >
+
+                <!--<button onclick="$('#multiple').click()">选择图片</button>-->
+            </div>
+            <div class="pure-u-19-24">
+                <span id="desc">请上传1-3张图,其中至少有一张建筑全景图</span>
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24"></div>
+            <div class="pure-u-22-24" id="imgs">
+
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">项目介绍<i>*</i></div>
+            <div class="pure-u-9-24">
+                <textarea placeholder="对项目整体的文字介绍，包含但不限于项目名称、项目地点、项目简介、设计理念、难点亮点、技术参数（能够量化的体现“之最”的数据或信息）"
+                          rows="5"></textarea>
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">业主单位</div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width02">
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24" style="line-height: 20px">顾问公司／个人</div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width02">
+            </div>
+        </div>
+        <div class="pure-g l-height" style="line-height: 20px">
+            <div class="pure-u-2-24">幕墙设计
+                单位/个人
+            </div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width02">
+            </div>
+        </div>
+        <div class="pure-g l-height" style="line-height: 20px">
+            <div class="pure-u-2-24">幕墙施工
+                单位/个人
+            </div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width02">
+            </div>
+        </div>
+        <div class="pure-g l-height">
+            <div class="pure-u-2-24">用材品牌</div>
+            <div class="pure-u-9-24">
+                <input type="text" class="width02" placeholder="玻璃、板材、胶、五金件等">
+            </div>
+        </div>
+        <div class="pure-g l-height" >
+            <div class="pure-u-24-24">
+                <input type="button" value="确认提交" class="submit" onclick="submit()">
+            </div>
+        </div>
+    </form>
+    <footer>
+        <h4 style="margin-top: 10px">关于活动中的任何问题，欢迎您与我们联系</h4>
+        <p style="margin-top: 22px;">2016寻找中国幕墙之最活动组委会 / 地址：北京市宣武区陶然亭路53号 / 电话：010-83531521</p>
+        <p>邮箱：muqiangsheji@yeah.net / 微信公众号：muqiangzhoukan</p>
+    </footer>
+</div>
+<script type="text/javascript">
+    function submit(){
+        $("form").submit();
+    }
+    function remove(id){
+     //   $('#img_id_num_'+id).prop('outerHTML', '');
+        $('#img_id_num_'+id).remove();
+    }
+    $(function() {
+
+        var img_id_num = 0;
+
+        $("#dropbox, #multiple").html5Uploader({
+            name: "foo",
+            postUrl: "bar.aspx",
+            onClientLoad:function(e1,e2){
+              //  console.log(e1);
+            //    console.log(e2);
+            },
+            onClientLoadEnd:function(e,file){
+             
+                img_id_num++;
+                var newdiv = document.createElement("div");
+                $(newdiv).attr("id","img_id_num_"+img_id_num)
+                $('#imgs').append(newdiv)
+                $(newdiv).append('<a href="javascript:remove('+img_id_num+')"><i class="iconfont" style="font-size: 18px;">&#xe609;</i></a><lable class="circular"></lable>');
+                var div = document.createElement("div");
+                $(newdiv).append(div);
+                var img = document.createElement("img");
+                img.file = file;
+                $(div).append(img);
+                var reader = new FileReader();
+                reader.onload = (function(aImg){
+                    return function(e){
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+                reader.readAsDataURL(file);
+            },
+
+            onServerAbort:function(t1,t2){
+                console.log(t1);
+                console.log(t2);
+            }
+        });
+    });
+</script>
+</body>
+</html>
