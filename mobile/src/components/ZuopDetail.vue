@@ -95,7 +95,7 @@
     export default {
         route: {
             data ({to}) {
-                document.title = "自定义title";
+                document.title = "2016 寻找中国幕墙之最";
                 var id = to.params.id;
                 let vm = this;
                 vm.text = '';

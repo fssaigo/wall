@@ -41,6 +41,7 @@
     export default {
         route:{
             data ({ to }) {
+                document.title = "2016寻找中国幕墙之最";
                 this.navigations.map(function (v, i) {
                     '/'+to.name == v.path ?v.isFocus = true:v.isFocus = false;
                 });

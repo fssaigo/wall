@@ -54,22 +54,27 @@ router.map({
         subRoutes: {
             '/': {
                 name:'index',
+                title:'2016寻找中国幕墙之最',
                 component:Index
             },
             '/jl':{
                 name:'jl',
+                title:'奖项设置',
                 component:Jl
             },
             '/rule':{
                 name:'rule',
+                title:'活动规则',
                 component:Rule
             },
             '/zuop':{
                 name:'zuop',
+                title:'参评项目',
                 component:Zuop
             },
             '/zuop/:tel':{
                 name:'zuop',
+                title:'作品展示',
                 component:Zuop
             }
         }
@@ -136,6 +141,7 @@ const iframeLoad = function (src) {
     })
 }
 // document title change
+/**
 router.afterEach((transition) => {
     document.title = transition.to.title;
     if (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
@@ -143,7 +149,14 @@ router.afterEach((transition) => {
         iframeLoad(src)
     }
 })
-
+ */
+router.afterEach(function (transition) {
+    document.title = transition.to.title;
+    if (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+        var src = '/static/fixrouter.html?' + Math.random()
+        iframeLoad(src)
+    }
+});
 
 
 router.redirect({
