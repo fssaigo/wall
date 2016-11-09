@@ -192,7 +192,7 @@
                                 '<div class="swiper-wrapper">' +
                                 '<div class="swiper-slide"><img src="http://www.zhuanti2016.wangziqing.cc/xiugai/code.jpg" height="150" style="display:block;margin-left: auto;margin-right: auto;">' +
                                 '<div style="text-align: center"><p style="margin-left:10px;margin-right:10px;font-size:12px;">感谢您的参与，扫描二维码（或长按进行识别），关注活动微信公众号，更多惊喜等着您</p>' +
-                                '<p style="margin-left:10px;margin-right:10px;font-size:12px;color:red;">转发活动并截屏发送到微信公众号，还可参与抽奖</p></div></div>' +
+                                '<p style="margin-left:10px;margin-right:10px;font-size:12px;color:red;">转发活动至朋友圈并截屏发送到微信公众号，还可参与抽奖</p></div></div>' +
                                 '</div>' +
                                 '</div>',
                                 buttons: [
